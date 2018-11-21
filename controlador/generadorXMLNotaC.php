@@ -12,6 +12,7 @@ require_once("../controlador/wbsFactura.php");
 // ------------------------------------------------------------------
   // VARIABLES DE CONFIGURACION DE CADA EMPRESA
     $IdNumeracionFenalcoNotaCredito;  
+     $IdNumeracionFenalcoFactura; 
     $plantillaVersionGrafica; 
 
 
@@ -25,6 +26,7 @@ require_once("../controlador/wbsFactura.php");
     while ($row = sqlsrv_fetch_array($ejecutar7)) {
 
         $IdNumeracionFenalcoNotaCredito  = $row['IdresolucionNotaCredito'];
+             $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
         $plantillaVersionGrafica     = $row['VersionGrafica'];
 
      
@@ -35,14 +37,13 @@ require_once("../controlador/wbsFactura.php");
 
 
 //prueba xml
-  $NumeroFac = '5000';
-
+  $NumeroFac = $_POST['NumeroFac'];
   $conceptoItem = json_decode($_POST['conceptoItem']);
   $RetenImpuesto = $_POST['RetencionImpuesto'];
   $ConceptoFacturaE = $_POST['ConceptoFactura'];
 
 
-//CONSULTA NOTA---------------------------------------------------------------------
+//CONSULTA ULTIMA NOTA---------------------------------------------------------------------
    $fechaActual = date("Y-m-d");
    $HoraActual = date("H:i:s");
 
@@ -66,6 +67,7 @@ if ($ejecutar6 === false) {
 
 
 
+//AQUI SE BUSCA LA NOTA PARCIAL----------------------------------------------
 
     // $NumNC;
     // $DocumentoEntidad;
@@ -313,7 +315,7 @@ $emailEmpresa;
     }
 
     if ($CodActividaEco == null) {
-      $CodActividaEco == '0';
+      $CodActividaEco = '0';
     }
     
     $telefonoEntidad=str_replace("-","",$telefonoE);
@@ -365,8 +367,11 @@ $emailEmpresa;
         $documento_electronico=$xml->createElement("documento_electronico");
         $root-> appendChild($documento_electronico);
 
-          $idNumeracion=$xml->createElement("idnumeracion",107);
+          $idNumeracion=$xml->createElement("idnumeracion",$IdNumeracionFenalcoNotaCredito);
           $documento_electronico-> appendChild($idNumeracion);
+
+           $tipodocumentoelectronico=$xml->createElement("tipodocumentoelectronico",3);
+            $documento_electronico->appendChild($tipodocumentoelectronico);
 
           $numeroFactura=$xml->createElement("numero",$NoNotaCredito);
           $documento_electronico-> appendChild($numeroFactura);
@@ -381,12 +386,11 @@ $emailEmpresa;
               $referencia=$xml->createElement("referencia");
               $referencias->appendChild($referencia);
 
-                $idnumeracionR=$xml->createElement("idnumeracion",$IdNumeracionFenalcoNotaCredito);
-                $referencia->appendChild($idnumeracionR);
+                $idnumeracionR=$xml->createElement("idnumeracion",$IdNumeracionFenalcoFactura);
+                $referencias->appendChild($idnumeracionR);
                 
-                $idnumeracionR=$xml->createElement("tipodocumentoelectronico",3);
-                $referencia->appendChild($idnumeracionR);
-
+                $tipodocumentoelectronicoR=$xml->createElement("tipodocumentoelectronico",1);
+                $referencia->appendChild($tipodocumentoelectronicoR);
 
                 $numeroReferencia=$xml->createElement("numero",$NumeroFac);
                 $referencia->appendChild($numeroReferencia);
@@ -600,7 +604,25 @@ $emailEmpresa;
       }
     }
 
-   $paInsertAnulada = "{call Face_PA_Insertar_Nota_Credito_anulada(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+  
+
+
+	$xml->save("../xmls/faceNC_".$NoNotaCredito.".xml");  
+
+	sleep(2);
+
+	$inst = new fenalco(); 
+	$r=$inst ->EnviarNotaCredito($NoNotaCredito);
+
+	$respuestaSuccess = $r->success;
+  $respuestaMsg = $r->msg;
+  // $larespuesta = $respuesta->msg;
+  
+
+
+  if ($respuestaSuccess == true) {
+    // modulo para acturalizar la tabla factura
+      $paInsertAnulada = "{call Face_PA_Insertar_Nota_Credito_anulada(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 
       $params = array(
         array($NoNotaCredito, SQLSRV_PARAM_IN),
@@ -634,16 +656,10 @@ $emailEmpresa;
             die(print_r(sqlsrv_errors(), true));
         }
 
-		  
-
-
-	$xml->save("../xmls/face_".$NoNotaCredito.".xml");  
-
-	sleep(2);
-
-	$inst = new fenalco(); 
-	$r=$inst ->EnviarNota($NoNotaCredito);
-
-	echo $r;
+      
+    echo "La factura numero ".$numF." ha anulada correctamente";
+  }elseif($respuestaSuccess == false){
+    echo $respuestaMsg;
+  }
 	
  ?>

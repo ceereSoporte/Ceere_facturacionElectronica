@@ -66,7 +66,7 @@ require_once("../controlador/wbsFactura.php");
            $ValorDescND     = $lista['ValorDescuentoND'];
            $porcentIvaND    = $lista['porcentajeIvaND'];
            $NoFacND         = $lista['NoFactura'];
-           $nombreEntidad         = $lista['NombreEntidad'];
+           $nombreEntidad   = $lista['NombreEntidad'];
 
            
 
@@ -75,9 +75,6 @@ require_once("../controlador/wbsFactura.php");
 
 $valorIvaND = ($valorND *('0.'.$porcentIvaND));
 $totalND = ($valorND + $valorIvaND);
-
-
-echo $totalND;
 
 //CONSULTA FACTURA------------------------------------------------------------------
 
@@ -215,10 +212,10 @@ $emailEmpresa;
         $tipoDocE        = $lista['Id Tipo de Documento'];
         $CiudadE         = utf8_encode($lista['CityName']);
         $CodigoCiudad    = $lista['CodigoCiudad'];
-        $pApeE           = $lista['FamilyName'];
-        $sApeE           = $lista['secondFamilyName'];
-        $pNomE           = $lista['FirstName'];
-        $sNomE           = $lista['MiddleName'];
+        $pApeE           = utf8_encode($lista['FamilyName']);
+        $sApeE           = utf8_encode($lista['secondFamilyName']);
+        $pNomE           = utf8_encode($lista['FirstName']);
+        $sNomE           = utf8_encode($lista['MiddleName']);
         $departE         = $lista['CodigoDepartamento'];
         $paisE         = $lista['codigoPais'];
         $direccionE      = utf8_encode($lista['Line Entidad']);
@@ -289,7 +286,7 @@ $emailEmpresa;
     }
 
     if ($CodActividaEco == null) {
-      $CodActividaEco == '0';
+      $CodActividaEco = '0';
     }
     
     $telefonoEntidad=str_replace("-","",$telefonoE);
@@ -339,8 +336,11 @@ $emailEmpresa;
           $idNumeracion=$xml->createElement("idnumeracion",$IdNumeracionFenalcoNotaDebito);
           $documento_electronico-> appendChild($idNumeracion);
 
+            $tipodocumentoelectronicoR=$xml->createElement("tipodocumentoelectronico",2);
+            $documento_electronico->appendChild($tipodocumentoelectronicoR);
           $numeroFactura=$xml->createElement("numero",$NumND);
           $documento_electronico-> appendChild($numeroFactura);
+
           $idconceptonota=$xml->createElement("idconceptonota" ,$ConceptoNotaD);
           $documento_electronico->appendChild($idconceptonota);
 
@@ -352,12 +352,12 @@ $emailEmpresa;
               $referencia=$xml->createElement("referencia");
               $referencias->appendChild($referencia);
 
-                $idnumeracionR=$xml->createElement("idnumeracion",$IdResolucionFactura);
-                $referencia->appendChild($idnumeracionR);
-                
-                $idnumeracionR=$xml->createElement("tipodocumentoelectronico",1);
+                $idnumeracionR=$xml->createElement("idnumeracion",$IdNumeracionFenalcoFactura);
                 $referencia->appendChild($idnumeracionR);
 
+
+                $tipodocumentoelectronico=$xml->createElement("tipodocumentoelectronico",1);
+                $referencia->appendChild($tipodocumentoelectronico);
 
                 $numeroReferencia=$xml->createElement("numero",$NumeroFac);
                 $referencia->appendChild($numeroReferencia);
@@ -530,7 +530,7 @@ $emailEmpresa;
 
 
 
-            $totalImpuestosItem=$xml->createElement("totalImpuestos",$0);
+            $totalImpuestosItem=$xml->createElement("totalImpuestos",0);
             $item-> appendChild($totalImpuestosItem);
 
             if ($Porcent != "0") {
@@ -578,9 +578,12 @@ $emailEmpresa;
 
 	sleep(2);
 
-	// $inst = new fenalco(); 
-	// $r=$inst ->EnviarNota($NoNotaCredito);
+	$inst = new fenalco(); 
+	$r=$inst ->EnviarNotaDebito($NumND);
 
-	// echo $r;
+  $respuestaSuccess = $r->success;
+  $respuestaMsg = $r->msg;
+
+  echo $respuestaMsg;
 	
  ?>

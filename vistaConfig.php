@@ -1,0 +1,156 @@
+<?php 
+   include 'controlador/controladorNotas.php';
+   ?> 
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Facturacion Electronica Ceere</title>
+      <!-- ====Google Font CSS==== -->
+      <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,500,700,900' rel='stylesheet' type='text/css'>
+      <!-- ====Font Awesome CSS==== -->
+      <link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+      <!-- ====Favicons==== -->
+      <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
+      <link href="img/favicon.png" rel="icon" type="image/x-icon">
+      <!-- ====Bootstrap Core CSS==== -->
+      <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+      <!-- ====Material Design Lite Core CSS==== -->
+      <link href="css/material.min.css" rel="stylesheet" type='text/css'>
+      <!-- ====Core CSS==== -->
+      <link href="css/style.css" rel="stylesheet" type='text/css'>
+      <!-- ====Main Color Scheme CSS==== -->
+      <link href="css/main-color-4.css" rel="stylesheet" type='text/css' id="mainColorScheme">
+   </head>
+   <body>
+      <div class="container" style="margin-bottom: 1%;">
+         <nav class="navbar">
+ 
+              <div class="container">
+               
+                <h1 class="logo"><img src="img/logo.png" alt=""></h1>
+                <ul class="nav nav-right">
+                  <li><a href="./"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
+                  <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
+                   <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li>
+<!--                  <li><a href="#"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li>
+ -->
+                </ul>
+              </div><!--/.container-->
+             
+            </nav>
+         <div class="contactForm">
+            <div class="mdl-card mdl-shadow--2dp">
+               
+               <div class="col-md-12">
+                  
+                  <div id="container" style="margin-top: 5%">
+                     <h4 class="mdl-typography--text-capitalize">CONFIGURACION</h4>
+                     <form id="contactForm" name="buscador" method="post" action="NotasVista.php">
+                     
+                     </form>
+               
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <button type="button" style="margin-top: 1%; margin-bottom: 1%; margin-left: 50%; transform: translateX(-50%);" class="contact-form-submit-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="generarXmlNota()"> Guardar configuracion </button>
+      </form>
+      </div>
+      </div>
+      <div id="loading-screen" style="display:none">
+            <img src="img/spinning-circles.svg">
+      </div>
+     
+      <!-- Color Switcher End -->
+      <!-- ====jQuery Core JavaScript==== -->
+      <script src="js/jquery-2.2.2.min.js"></script>
+      <!-- ====Bootstrap Core JavaScript==== -->
+      <script src="js/bootstrap.min.js"></script>
+      <!-- ====Material Design Lite Core JavaScript==== -->
+      <script src="js/material.min.js"></script>
+      <!-- ====jQuery Validation JavaScript==== -->
+      <script src="js/jquery.validate.min.js"></script>
+      <!-- ====Core JavaScript==== -->
+      <script src="js/main.js"></script>
+      <!-- ====Color Switcher JavaScript==== -->
+      <script src="js/color-switcher.js"></script>
+      <!-- FUNCIONES JAVASCRIPT -->
+      <script>
+         function generarXmlNota() {
+            var screen = $('#loading-screen');
+            var NumeroFactura = document.getElementById("idFactura").value;
+            var NumeroNota = document.getElementById("NumeroNota").value;
+            var ConceptoNota = document.getElementById("ConceptoNcSelect").value;
+            var TipoNota = document.getElementById("TipoNotaInput").value;
+          
+            console.log(ConceptoNota);
+            console.log( NumeroNota );
+
+
+              if (NumeroFactura == "") {
+                        swal({
+                          type: 'error',
+                          title: 'Campo vacio',
+                          text: 'El campo Numero de factura esta vacio',
+                          
+                        })
+                        return false;
+
+                     } 
+             configureLoadingScreen(screen);
+
+
+            var dataString = 'NumeroFac=' + NumeroFactura +'&NumeroNota=' + NumeroNota +'&ConceptoNota=' + ConceptoNota +'&TipoNota=' + TipoNota ;
+         
+         if (TipoNota == 1 ) {
+            $.ajax({
+            type: "POST",
+            url: "controlador/generadorXMLNotaD.php",
+            data: dataString,
+            cache: false,
+            success: function(html) {
+            swal({                     
+               title: 'Respuesta',
+               text: html,
+             })
+            }
+            });
+         }else{
+            //  AJAX code to submit form.
+            // $.ajax({
+            // type: "POST",
+            // url: "controlador/generadorXMLNota.php",
+            // data: dataString,
+            // cache: false,
+            // success: function(html) {
+            // alert(html);
+            // }
+            // });
+         }
+          
+            
+            return false;
+            }
+
+              function configureLoadingScreen(screen){
+                      $(document)
+                          .ajaxStart(function () {
+                              screen.fadeIn();
+                          })
+                          .ajaxStop(function () {
+                              screen.fadeOut();
+                          });
+                  }
+                 
+          
+         
+      </script>  
+   </body>
+</html>

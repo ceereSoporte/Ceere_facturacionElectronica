@@ -23,6 +23,7 @@
       <link href="css/material.min.css" rel="stylesheet" type='text/css'>
       <!-- ====Core CSS==== -->
       <link href="css/style.css" rel="stylesheet" type='text/css'>
+            <link href="css/sweetalert2.min.css" rel="stylesheet" type='text/css'>
       <!-- ====Main Color Scheme CSS==== -->
       <link href="css/main-color-4.css" rel="stylesheet" type='text/css' id="mainColorScheme">
    </head>
@@ -36,9 +37,7 @@
                 <ul class="nav nav-right">
                   <li><a href="./"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
                   <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
-<!--                   <li><a href="#"><i class="fa fa-question-circle"></i>&nbsp;Ayuda</a></li>
-                 <li><a href="#"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li> -->
-
+                   <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li>                <!--  <li><a href="#"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li> --> 
                 </ul>
               </div><!--/.container-->
              
@@ -49,7 +48,7 @@
                <div class="col-md-12">
                   
                   <div id="container" style="margin-top: 5%">
-                     <h4 class="mdl-typography--text-capitalize">Crear Nota</h4>
+                     <h4 class="mdl-typography--text-capitalize">CREAR NOTA</h4>
                      <form id="contactForm" name="buscador" method="post" action="NotasVista.php">
                         <div class="row col-md-12" style="margin-left: 50%; transform: translateX(-50%);">
                            <div class="col-md-5" style="margin-top: -1.5%">
@@ -191,6 +190,8 @@
       <script src="js/jquery.validate.min.js"></script>
       <!-- ====Core JavaScript==== -->
       <script src="js/main.js"></script>
+
+         <script src="js/sweetalert2.js"></script>
       <!-- ====Color Switcher JavaScript==== -->
       <script src="js/color-switcher.js"></script>
       <!-- FUNCIONES JAVASCRIPT -->

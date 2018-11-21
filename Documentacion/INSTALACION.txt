@@ -1,0 +1,72 @@
+HOLA JOVEN COMPAÑERO
+
+ESTA ES EL DOCUMENTACION PARA PODER INSTARLAR DE MANERA CORRECTA EL SOFTWARE MAL ECHO DE FACTURACION ELECTRONICA,
+EL CUAL SE ENCARGA DE GENERAR LAS FACTURAS YA CREADAS EN FORMATO XML Y ENVIARLAS AL PROVEEDOR TECNOLOGICO "FENALCO".
+
+
+------------------------------------------------------------------------------------------------------------
+DATOS DE GRAN IMPORTACIA:
+- LAS VERSION QUE SOLO FUNCIONA PARA ES PARA PHP 5.6.
+- LA LIBRERIAS SOLO FUNCIONAN PARA SQL SERVER 2014, SQL Server 2012,SQL Server 2008 R2,SQL Server 2008.
+
+------------------------------------------------------------------------------------------------------------
+
+1- Primero que todo se va a necesitar instalar el xamp el cual va ser nuestro servidor local para nuestro proyecto.
+
+preferible hasta la fecha (21-11-2018), se necesita el xamp el cual contenga el php 5.6 integrado.
+
+https://www.apachefriends.org/es/download.html
+
+2- Para poder usar la base de datos la cual siempre es sql server se va necesitar instalar los drivers necesarios
+para poder concectar el php con el sql.
+
+para este deberemos descargar del siguiente link: https://www.microsoft.com/en-us/download/details.aspx?id=20098 o
+o buscar Download Microsoft Drivers for PHP for SQL Server Y descargar el archivo que se llama: 	
+
+SQLSRV32.EXE
+
+Por si no sabes pequeño padaguan la librerias necesarias se llaman SQLSRV y si tienes alguna duda puedes consultar la
+documentacion oficial en esta :  https://docs.microsoft.com/en-us/sql/connect/php/system-requirements-for-the-php-sql-driver?view=sql-server-2017
+
+3- Una vez descargado el exe, es preferible tener una carpeta que se llame controladores para identificar donde se guardaron los archivos que vamos a descomprimir
+
+al abrir el exe sigues los pasos y seleccionas la carpeta que acabamos de crear y seguimos los pasos que muetsra el exe.
+
+4- una vez descomprimidos, nos dirigimos a la carpeta y vamos a seleccionar los archivos que tengan de nombre php_pdo_sqlsrv_56 deben ser 4 archivos, los 
+seleccionamos nos vamos a dirigir a la siguiente direccion: xampp->php->ext, y pegamos los documentos.
+
+5-Despues de pegados los archivos no vamos a dirigir al XAMPP CONTROL PANEL y en la parte de apache en el boton config, seleccionamos "PHP (php.ini)"
+
+6- buscamos la seccion "extension=" para mas comodidad. y pegamos los nombres los archivos que pegamos en ext, asi:
+
+	extension=php_pdo_sqlsrv_56_nts.dll
+	extension=php_pdo_sqlsrv_56_ts.dll
+	extension=php_sqlsrv_56_nts.dll
+	extension=php_sqlsrv_56_ts.dll
+
+7- ya que estamos aqui en este archivo le quitamos el ; al extension=php_soap.dll para poder activar la conexion soap para concectarse a factible.
+
+8- guardamos todos los cambios y cerramos el bloc de notas, le damos al boton de admin o encontrar la forma de poder ver el PHPInfo para poder buscar 
+pdo_sqlsrv y ver que este activo.
+
+de  igual manera revisamos que las funciones de soap esten activas.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+PARA ACTIVAR EL XAMP PARA PODER VERSE EN RED
+
+Dentro de la carpeta documentacion de facturacion hay un archivo pdf llamado: "Abrir acceso por red a Xampp" en el se explica perfectamente como abrir la conexion 
+en red para los equipo que esten red o por internt wifi.
+
+
+
+ 
+	
+
+	
+
+
+
+
+

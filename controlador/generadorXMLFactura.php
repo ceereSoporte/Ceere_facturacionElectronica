@@ -222,7 +222,7 @@ require_once("../controlador/wbsFactura.php");
     }
 
     if ($CodActividaEco == null) {
-    	$CodActividaEco == '0';
+    	$CodActividaEco = '0';
     }
  
  

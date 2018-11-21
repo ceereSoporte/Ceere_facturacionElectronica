@@ -42,7 +42,7 @@
                 <ul class="nav nav-right">
                   <li><a href="./"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
                   <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
-<!--                   <li><a href="#"><i class="fa fa-question-circle"></i>&nbsp;Ayuda</a></li> -->
+                  <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li>
 <!--                  <li><a href="#"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li> -->
 
                 </ul>
@@ -70,7 +70,7 @@
                   </form>
                   <hr>
                   <form  id="idFormularioGenerar" name="generador" method="post" >
-                     <h4 class="mdl-typography--text-capitalize">Información Factura</h4>
+                     <h4 class="mdl-typography--text-capitalize">INFORMACÍON FACTURA</h4>
                      <?php consultaFactura(); ?>
                       
                      <div class="col-md-4" style="float: right; margin-top: -1%; font-size: 25px">
@@ -381,16 +381,7 @@
  configureLoadingScreen(screen);
 
    // VALIDAACIONES DE CAMPOS VACIOS----------------------------      
-                     if (estadoFace == 1 ) {
-                        swal({
-                          type: 'error',
-                          title: 'Factura ya fue generada',
-                          text: 'La factura ya fue generada electronicamente',
-                          
-                        })
-                        return false;
-
-                     } 
+                     
 
                      if (NumeroFactura == "") {
                         swal({
@@ -496,10 +487,19 @@
                         }
                               
                       
-                     }else{
+                     }else if(estadoFace == 1){
 
-                         
-                      $.ajax({
+                    
+                        swal({
+                          type: 'error',
+                          title: 'Factura ya fue generada',
+                          text: 'La factura ya fue generada electronicamente',
+                          
+                        })
+                        return false;
+
+                     } else{
+                        $.ajax({
                       type: "POST",
                       url: "controlador/generadorXMLFactura.php",
                       data: dataString,
@@ -513,10 +513,13 @@
                       }
                       });
                      }
+                         
+                      
+                     }
                       return false;
                      }
 
-                  }
+                  
 
                   function configureLoadingScreen(screen){
                       $(document)

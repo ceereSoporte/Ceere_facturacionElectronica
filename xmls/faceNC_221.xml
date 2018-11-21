@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>107</idnumeracion>
+    <tipodocumentoelectronico>3</tipodocumentoelectronico>
+    <numero>221</numero>
+    <idconceptonota>2</idconceptonota>
+    <referencias>
+      <referencia>
+        <tipodocumentoelectronico>1</tipodocumentoelectronico>
+        <numero>18345</numero>
+      </referencia>
+      <idnumeracion>73</idnumeracion>
+    </referencias>
+    <fechadocumento>2018-11-21</fechadocumento>
+    <horadocumento>20:50:41</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>21253321</identificacion>
+      <digito_verificacion/>
+      <nombres>Miriam </nombres>
+      <apellidos>Zapata Bedoya</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Carrera 85 No 34 18</direccion>
+      <telefono>4141675</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <importes>
+      <totalImporteBruto>30000</totalImporteBruto>
+      <totalBaseImponible>30000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>30000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>08</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Consulta audiológica</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>30000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>30000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>
