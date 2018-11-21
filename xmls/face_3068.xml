@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>3068</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2014-08-09</fechadocumento>
+    <horadocumento>08:49:12</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>32140452</identificacion>
+      <digito_verificacion/>
+      <nombres>Ana  Milena </nombres>
+      <apellidos>Serna Pajon</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Cr 80a N 32d -02 Apt 514</direccion>
+      <telefono>4118093</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>1</taxevidenceindicator>
+        <base>6897</base>
+        <porcentaje>16</porcentaje>
+        <valor>1103</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>6897</totalImporteBruto>
+      <totalBaseImponible>6897</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>8000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>RCG5</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Reintegro otros</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>6896.55</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>6896.55</precioUnitarioSinImpuestos>
+        <totalImpuestos>7999.998</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>16</porcentaje>
+            <valor>1103.448</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>1235</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2013-07-05</fechadocumento>
+    <horadocumento>08:58:47</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>98552598</identificacion>
+      <digito_verificacion/>
+      <nombres>Juan Esteban</nombres>
+      <apellidos>Vargas Duque</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Calle10c N 25-156 </direccion>
+      <telefono>3123093</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>41</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>1</taxevidenceindicator>
+        <base>43103</base>
+        <porcentaje>16</porcentaje>
+        <valor>6897</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>43103</totalImporteBruto>
+      <totalBaseImponible>43103</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>50000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>TC</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Comision tarjeta de credito</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>43103.44</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>43103.44</precioUnitarioSinImpuestos>
+        <totalImpuestos>49999.9904</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>16</porcentaje>
+            <valor>6896.5504</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

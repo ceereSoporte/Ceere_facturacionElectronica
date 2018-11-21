@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>107</idnumeracion>
+    <numero>2617</numero>
+    <idconceptonota>2</idconceptonota>
+    <referencias>
+      <referencia>
+        <idnumeracion>73</idnumeracion>
+        <tipodocumentoelectronico>1</tipodocumentoelectronico>
+        <numero>5000</numero>
+      </referencia>
+    </referencias>
+    <fechadocumento>2018-11-15</fechadocumento>
+    <horadocumento>14:15:33</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>63489598</identificacion>
+      <digito_verificacion/>
+      <nombres>Danith Yazmine</nombres>
+      <apellidos>Hangarita Moreno</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Cl 42n 63 B -07 Barrio Conquistadores</direccion>
+      <telefono>2650554</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>41</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>1</taxevidenceindicator>
+        <base>10345</base>
+        <porcentaje>16</porcentaje>
+        <valor>1655</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>10345</totalImporteBruto>
+      <totalBaseImponible>10345</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>12000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>COMINSTR</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Comisión por instrumentación</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>10344.82</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>10344.82</precioUnitarioSinImpuestos>
+        <totalImpuestos>11999.9912</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>16</porcentaje>
+            <valor>1655.1712</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

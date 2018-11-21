@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idNumeracion>18762003610896</idNumeracion>
+<!-- <prefijo>   </prefijo> -->
+<numero>116974</numero>
+<fechadocumento>2018-09-20</fechadocumento>
+<horadocumento>14:51:04</horadocumento>
+<documentoexportacion>0</documentoexportacion>
+<documentCurrencyCode>cop</documentCurrencyCode>
+<idreporte/>
+<tipocontenido/>
+<adquiriente>
+  <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+  <identificacion>70546893</identificacion>
+  <digito_verificacion/>
+  <nombres>Jorge  Alberto</nombres>
+  <apellidos>Jaramillo Restrepo</apellidos>
+  <emailcontacto>jorgeajaramillo13@gmail.com</emailcontacto>
+  <emailentrega>jorgeajaramillo13@gmail.com</emailentrega>
+  <idciudad>Medellín</idciudad>
+  <direccion>Clle 29 Sur N 35a-20 Jardines Envigado</direccion>
+  <telefono>270-80-11</telefono>
+  <idtiporegimen>1</idtiporegimen>
+  <idactividadeconomica/>
+  <grancontribuyente>0</grancontribuyente>
+  <autoretenedor>0</autoretenedor>
+</adquiriente>
+<CorreosCopia>
+  <CorreoCopia>gerencia@iqinterquirofanos.com</CorreoCopia>
+</CorreosCopia>
+<mediopago>
+  <id>1</id>
+  <codigo>10</codigo>
+</mediopago>
+<impuesto>
+  <idconceptoimpuesto/>
+  <taxevidenceindicator>1</taxevidenceindicator>
+  <base>1545</base>
+  <porcentaje>0</porcentaje>
+  <valor>0</valor>
+  <totalImporteBruto>1545</totalImporteBruto>
+  <totalBaseImponible>1545</totalBaseImponible>
+  <totalCargos>0</totalCargos>
+  <totalAnticipos>0</totalAnticipos>
+  <TotalPagado>1545</TotalPagado>
+</impuesto>
+<item>
+  <consecutivo>308311</consecutivo>
+  <codigo>00000</codigo>
+  <código_extendido/>
+  <descripcionItem>(+) Nota Débito No 111</descripcionItem>
+  <costoTotalSinImpuestos>1545</costoTotalSinImpuestos>
+  <precioUnitarioSinImpuestos>1545</precioUnitarioSinImpuestos>
+  <totalImpuestos>1545</totalImpuestos>
+  <impuestos_item>
+    <impuesto_item>
+      <idconceptoimpuesto>0</idconceptoimpuesto>
+      <porcentaje>0</porcentaje>
+      <valor>0</valor>
+    </impuesto_item>
+  </impuestos_item>
+</item>

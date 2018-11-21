@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>1238</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2013-07-05</fechadocumento>
+    <horadocumento>10:03:32</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>43619016</identificacion>
+      <digito_verificacion/>
+      <nombres>Monica Alexandra</nombres>
+      <apellidos>Echeverry Osorio </apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Cra 80 C # 30 A 99</direccion>
+      <telefono>2569763</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>1</taxevidenceindicator>
+        <base>8621</base>
+        <porcentaje>16</porcentaje>
+        <valor>1379</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>8621</totalImporteBruto>
+      <totalBaseImponible>8621</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>10000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>COMINSTR</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Comisión por instrumentación</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>8620.68</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>8620.68</precioUnitarioSinImpuestos>
+        <totalImpuestos>9999.9888</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>16</porcentaje>
+            <valor>1379.3088</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

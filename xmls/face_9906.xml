@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idNumeracion>73</idNumeracion>
+    <numero>9906</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2017-11-01</fechadocumento>
+    <horadocumento>20:17:19</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>cop</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>31</idtipodocumentoidentidad>
+      <identificacion>999-7</identificacion>
+      <digito_verificacion>7</digito_verificacion>
+      <nombres> </nombres>
+      <apellidos>Comprador Eventual </apellidos>
+      <emailcontacto/>
+      <emailentrega/>
+      <idciudad>CO05001</idciudad>
+      <direccion>Calle 7 N°39-197</direccion>
+      <telefono>3164050</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0081</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>gerencia@iqinterquirofanos.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>41</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto/>
+        <taxevidenceindicator>1</taxevidenceindicator>
+        <base>2521</base>
+        <porcentaje>19</porcentaje>
+        <valor>479</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>2521</totalImporteBruto>
+      <totalBaseImponible>2521</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>3000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>FMG</codigo>
+        <código_extendido/>
+        <descripcionItem>Medicamentos y materiales (gr)</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>2521</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>2521</precioUnitarioSinImpuestos>
+        <totalImpuestos>2999.99</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>19</porcentaje>
+            <valor>478.99</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

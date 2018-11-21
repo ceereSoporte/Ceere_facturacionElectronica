@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>9935</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2017-11-14</fechadocumento>
+    <horadocumento>10:28:37</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>1037620944</identificacion>
+      <digito_verificacion/>
+      <nombres>Luisa Paulina</nombres>
+      <apellidos>Montoya Carvajal</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Cllr 36 Sur N 44-26 Loma Del Chocho</direccion>
+      <telefono>3360097</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>41</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>1</taxevidenceindicator>
+        <base>42017</base>
+        <porcentaje>19</porcentaje>
+        <valor>7983</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>42017</totalImporteBruto>
+      <totalBaseImponible>42017</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>50000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>FMG</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Medicamentos y materiales (gr)</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>42017</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>42017</precioUnitarioSinImpuestos>
+        <totalImpuestos>50000.23</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>19</porcentaje>
+            <valor>7983.23</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

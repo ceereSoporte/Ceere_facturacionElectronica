@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>107</idnumeracion>
+    <numero>3</numero>
+    <idconceptonota>1</idconceptonota>
+    <referencias>
+      <referencia>
+        <idnumeracion>73</idnumeracion>
+        <tipodocumentoelectronico>3</tipodocumentoelectronico>
+        <numero>1500</numero>
+      </referencia>
+    </referencias>
+    <fechadocumento>2011-03-31</fechadocumento>
+    <horadocumento>10:49:43</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>42985023</identificacion>
+      <digito_verificacion/>
+      <nombres>Gloria Elena</nombres>
+      <apellidos>Escobar Calle</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Calle 12 No.15-177 Casa 110</direccion>
+      <telefono>3257140</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto/>
+        <taxevidenceindicator/>
+        <base>16379</base>
+        <porcentaje>16</porcentaje>
+        <valor>2621</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>16379</totalImporteBruto>
+      <totalBaseImponible>16379</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>19000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>COMINSTR</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Comisión por instrumentación</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>16379.31</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>16379.31</precioUnitarioSinImpuestos>
+        <totalImpuestos>18999.9996</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>0</idconceptoimpuesto>
+            <porcentaje>16</porcentaje>
+            <valor>2620.6896</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>5003</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2015-04-16</fechadocumento>
+    <horadocumento>16:38:58</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>15323676</identificacion>
+      <digito_verificacion/>
+      <nombres>Juan  Esteban </nombres>
+      <apellidos>Zapata  Silva </apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Carrera 82  C # 30 A 105 Apto: 1011</direccion>
+      <telefono>5786128</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>41</codigo>
+      </mediopago>
+    </mediospago>
+    <importes>
+      <totalImporteBruto>45700</totalImporteBruto>
+      <totalBaseImponible>45700</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>45700</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>FME</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Medicamentos y materiales (ex)</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>45700</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>45700</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>
