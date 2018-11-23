@@ -391,7 +391,7 @@ require_once("../controlador/wbsFactura.php");
 						$CorreoCopia=$xml->createElement("CorreoCopia","alejandrovelez74@gmail.com");//$emailEmpresa
 						$CorreosCopia-> appendChild($CorreoCopia);
 
-
+				if ($medioPagoF==2) {
 					$mediospago=$xml->createElement("mediospago");
 					$documento_electronico-> appendChild($mediospago);		
 						
@@ -403,6 +403,8 @@ require_once("../controlador/wbsFactura.php");
 
 						$codigoMedioPago=$xml->createElement("codigo",$medioPagoF);
 						$mediopago-> appendChild($codigoMedioPago);	
+				}
+					
 
 					if ($Porcent != "0") {
 					$impuestos=$xml->createElement("impuestos");
@@ -440,17 +442,17 @@ require_once("../controlador/wbsFactura.php");
 						$idA = 0;
 						$idA2 = 1;
 						$valorImpuestoItemP = 0;
+				
+
+
+		        	$items=$xml->createElement("items");
+					$documento_electronico -> appendChild($items);
 				while ($row2 = sqlsrv_fetch_array($ejecutar4)) {	
 				
 		 		$arrayId = [
 		            $idA =>  $row2['Id FacturaII']
 		            
 		        ];
-
-
-		        	$items=$xml->createElement("items");
-					$documento_electronico -> appendChild($items);
-
 					$item=$xml->createElement("item");
 					$items -> appendChild($item);	
 						$itemConsecutivo=$xml->createElement("consecutivo",$idA2);
@@ -537,7 +539,7 @@ require_once("../controlador/wbsFactura.php");
 
 	$respuestaSuccess = $r->success;
 	$respuestaMsg = $r->msg;
-	// $larespuesta = $respuesta->msg;
+
 	
 
 

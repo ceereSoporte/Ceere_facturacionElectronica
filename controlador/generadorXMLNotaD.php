@@ -354,14 +354,13 @@ $emailEmpresa;
 
                 $idnumeracionR=$xml->createElement("idnumeracion",$IdNumeracionFenalcoFactura);
                 $referencia->appendChild($idnumeracionR);
+                $tipodocumentoelectronicoR=$xml->createElement("tipodocumentoelectronico",1);
+                $referencia->appendChild($tipodocumentoelectronicoR);
 
-
-                $tipodocumentoelectronico=$xml->createElement("tipodocumentoelectronico",1);
-                $referencia->appendChild($tipodocumentoelectronico);
+                
 
                 $numeroReferencia=$xml->createElement("numero",$NumeroFac);
                 $referencia->appendChild($numeroReferencia);
-
 
 
           $fechadocumento=$xml->createElement("fechadocumento",$FechaND);
@@ -453,7 +452,7 @@ $emailEmpresa;
             $CorreoCopia=$xml->createElement("CorreoCopia","alejandrovelez74@gmail.com");//$emailEmpresa
             $CorreosCopia-> appendChild($CorreoCopia);
 
-
+      if ($medioPagoF==2) {
           $mediospago=$xml->createElement("mediospago");
           $documento_electronico-> appendChild($mediospago);    
             
@@ -465,6 +464,7 @@ $emailEmpresa;
 
             $codigoMedioPago=$xml->createElement("codigo",$medioPagoF);
             $mediopago-> appendChild($codigoMedioPago); 
+        }
 
           if ($porcentIvaND != "0") {
           $impuestos=$xml->createElement("impuestos");

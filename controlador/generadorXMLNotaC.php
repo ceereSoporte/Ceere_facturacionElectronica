@@ -242,11 +242,11 @@ $emailEmpresa;
         $tipoDocE        = $lista['Id Tipo de Documento'];
         $CiudadE         = utf8_encode($lista['CityName']);
         $CodigoCiudad    = $lista['CodigoCiudad'];
-        $pApeE           = $lista['FamilyName'];
-        $sApeE           = $lista['secondFamilyName'];
-        $pNomE           = $lista['FirstName'];
-        $sNomE           = $lista['MiddleName'];
-        $departE         = $lista['CodigoDepartamento'];
+        $pApeE           = utf8_encode( $lista['FamilyName']);
+        $sApeE           = utf8_encode( $lista['secondFamilyName']);
+        $pNomE           = utf8_encode( $lista['FirstName']);
+        $sNomE           = utf8_encode( $lista['MiddleName']);
+        $departE         = utf8_encode( $lista['CodigoDepartamento']);
         $paisE         = $lista['codigoPais'];
         $direccionE      = utf8_encode($lista['Line Entidad']);
         $BarrioE         = utf8_encode($lista['citySubdivisionName']);
@@ -486,7 +486,7 @@ $emailEmpresa;
             $CorreoCopia=$xml->createElement("CorreoCopia","alejandrovelez74@gmail.com");//$emailEmpresa
             $CorreosCopia-> appendChild($CorreoCopia);
 
-
+      if ($medioPagoF==2) {
           $mediospago=$xml->createElement("mediospago");
           $documento_electronico-> appendChild($mediospago);    
             
@@ -498,7 +498,7 @@ $emailEmpresa;
 
             $codigoMedioPago=$xml->createElement("codigo",$medioPagoF);
             $mediopago-> appendChild($codigoMedioPago); 
-
+        }
           if ($Porcent != "0") {
           $impuestos=$xml->createElement("impuestos");
           $documento_electronico-> appendChild($impuestos); 

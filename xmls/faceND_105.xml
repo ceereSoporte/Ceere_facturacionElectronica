@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
   <documento_electronico>
-    <idnumeracion>107</idnumeracion>
-    <tipodocumentoelectronico>3</tipodocumentoelectronico>
-    <numero>223</numero>
-    <idconceptonota>2</idconceptonota>
+    <idnumeracion>265</idnumeracion>
+    <tipodocumentoelectronico>2</tipodocumentoelectronico>
+    <numero>105</numero>
+    <idconceptonota>1</idconceptonota>
     <referencias>
       <referencia>
         <tipodocumentoelectronico>1</tipodocumentoelectronico>
-        <numero>18345</numero>
+        <numero>99969</numero>
       </referencia>
       <idnumeracion>73</idnumeracion>
     </referencias>
-    <fechadocumento>2018-11-21</fechadocumento>
-    <horadocumento>20:50:41</horadocumento>
+    <fechadocumento>2018-05-18</fechadocumento>
+    <horadocumento>17:05:00</horadocumento>
     <documentoexportacion>0</documentoexportacion>
     <documentCurrencyCode>COP</documentCurrencyCode>
-    <idreporte>46</idreporte>
+    <idreporte>45</idreporte>
     <tipocontenido/>
     <adquiriente>
       <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
-      <identificacion>21253321</identificacion>
+      <identificacion>32329556</identificacion>
       <digito_verificacion/>
-      <nombres>Miriam </nombres>
-      <apellidos>Zapata Bedoya</apellidos>
+      <nombres>Luz Mariela</nombres>
+      <apellidos>Agudelo De Cañas</apellidos>
       <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
       <emailentrega>alejandrovelez74@gmail.com</emailentrega>
       <idciudad>CO05001</idciudad>
-      <direccion>Carrera 85 No 34 18</direccion>
-      <telefono>4141675</telefono>
+      <direccion>Cra 45 B Sur N 45 - 50</direccion>
+      <telefono>3346060</telefono>
       <idtiporegimen>1</idtiporegimen>
       <idactividadeconomica>0</idactividadeconomica>
       <grancontribuyente>0</grancontribuyente>
@@ -44,21 +44,21 @@
       </mediopago>
     </mediospago>
     <importes>
-      <totalImporteBruto>30000</totalImporteBruto>
-      <totalBaseImponible>30000</totalBaseImponible>
+      <totalImporteBruto>2953194</totalImporteBruto>
+      <totalBaseImponible>2953194</totalBaseImponible>
       <totalCargos>0</totalCargos>
       <totalAnticipos>0</totalAnticipos>
-      <TotalPagado>30000</TotalPagado>
+      <TotalPagado>2953194</TotalPagado>
     </importes>
     <items>
       <item>
         <consecutivo>1</consecutivo>
-        <codigo>08</codigo>
+        <codigo>COP</codigo>
         <codigo_extendido/>
-        <descripcionItem>Consulta audiológica</descripcionItem>
-        <cantidad>1</cantidad>
-        <costoTotalSinImpuestos>30000</costoTotalSinImpuestos>
-        <precioUnitarioSinImpuestos>30000</precioUnitarioSinImpuestos>
+        <descripcionItem>Copago</descripcionItem>
+        <cantidad>0</cantidad>
+        <costoTotalSinImpuestos>0</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>0</precioUnitarioSinImpuestos>
         <totalImpuestos>0</totalImpuestos>
       </item>
     </items>

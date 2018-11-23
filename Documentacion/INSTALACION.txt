@@ -51,6 +51,13 @@ pdo_sqlsrv y ver que este activo.
 
 de  igual manera revisamos que las funciones de soap esten activas.
 
+8- el paso mas importante es este, el cual es de la sicncronizacion o agregacion de tablas, columnas, vistas y procedimientos almacenados
+para que el proyecto de facturacion electronica funcione correctamente.
+
+dentro de la carpeta del proyecto "scriptBD" se encontrara un archivo sql el cual tiene los schemas de los cambios de la base de datos,
+se recomienda ejecutar cada schema uno a uno para que no haya ningun problema.
+ 
+
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -59,6 +66,11 @@ PARA ACTIVAR EL XAMP PARA PODER VERSE EN RED
 Dentro de la carpeta documentacion de facturacion hay un archivo pdf llamado: "Abrir acceso por red a Xampp" en el se explica perfectamente como abrir la conexion 
 en red para los equipo que esten red o por internt wifi.
 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Este manual de instalacion fue echo por el que hizo todo este proyecto <Alejandro Vélez Ortiz 21/11/2018>
+
+Espero que te sirva de ayuda y buena suerte :)
 
 
  

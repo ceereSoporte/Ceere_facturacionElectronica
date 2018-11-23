@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
   <documento_electronico>
-    <idnumeracion>107</idnumeracion>
-    <tipodocumentoelectronico>3</tipodocumentoelectronico>
-    <numero>223</numero>
-    <idconceptonota>2</idconceptonota>
+    <idnumeracion>73</idnumeracion>
+    <numero>99986</numero>
     <referencias>
       <referencia>
-        <tipodocumentoelectronico>1</tipodocumentoelectronico>
-        <numero>18345</numero>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
       </referencia>
-      <idnumeracion>73</idnumeracion>
     </referencias>
-    <fechadocumento>2018-11-21</fechadocumento>
-    <horadocumento>20:50:41</horadocumento>
+    <fechadocumento>2017-06-27</fechadocumento>
+    <horadocumento>14:02:10</horadocumento>
     <documentoexportacion>0</documentoexportacion>
     <documentCurrencyCode>COP</documentCurrencyCode>
     <idreporte>46</idreporte>
     <tipocontenido/>
     <adquiriente>
       <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
-      <identificacion>21253321</identificacion>
+      <identificacion>71382372</identificacion>
       <digito_verificacion/>
-      <nombres>Miriam </nombres>
-      <apellidos>Zapata Bedoya</apellidos>
+      <nombres>Diego </nombres>
+      <apellidos>Penagos Echavarria</apellidos>
       <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
       <emailentrega>alejandrovelez74@gmail.com</emailentrega>
       <idciudad>CO05001</idciudad>
-      <direccion>Carrera 85 No 34 18</direccion>
-      <telefono>4141675</telefono>
+      <direccion>Calle 6 18 60 Ap 701</direccion>
+      <telefono>3210083</telefono>
       <idtiporegimen>1</idtiporegimen>
       <idactividadeconomica>0</idactividadeconomica>
       <grancontribuyente>0</grancontribuyente>
@@ -44,21 +43,21 @@
       </mediopago>
     </mediospago>
     <importes>
-      <totalImporteBruto>30000</totalImporteBruto>
-      <totalBaseImponible>30000</totalBaseImponible>
+      <totalImporteBruto>162640</totalImporteBruto>
+      <totalBaseImponible>162640</totalBaseImponible>
       <totalCargos>0</totalCargos>
       <totalAnticipos>0</totalAnticipos>
-      <TotalPagado>30000</TotalPagado>
+      <TotalPagado>162640</TotalPagado>
     </importes>
     <items>
       <item>
         <consecutivo>1</consecutivo>
-        <codigo>08</codigo>
+        <codigo>PRP</codigo>
         <codigo_extendido/>
-        <descripcionItem>Consulta audiológica</descripcionItem>
+        <descripcionItem>Plasma rico en plaqueta</descripcionItem>
         <cantidad>1</cantidad>
-        <costoTotalSinImpuestos>30000</costoTotalSinImpuestos>
-        <precioUnitarioSinImpuestos>30000</precioUnitarioSinImpuestos>
+        <costoTotalSinImpuestos>162640</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>162640</precioUnitarioSinImpuestos>
         <totalImpuestos>0</totalImpuestos>
       </item>
     </items>

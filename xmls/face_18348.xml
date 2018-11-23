@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>18348</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2018-04-24</fechadocumento>
+    <horadocumento>13:58:43</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>46</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>43082423</identificacion>
+      <digito_verificacion/>
+      <nombres>Luz Adriana</nombres>
+      <apellidos>Palacio Tirado</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Calle 43b  No. 82-70 La América</direccion>
+      <telefono>4132592</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <importes>
+      <totalImporteBruto>105000</totalImporteBruto>
+      <totalBaseImponible>105000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>105000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>27102</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Audiometria tonal</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>35000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>35000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+    <items>
+      <item>
+        <consecutivo>2</consecutivo>
+        <codigo>27103</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Audiometria vocal (logoaudiometria)</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>35000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>35000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+    <items>
+      <item>
+        <consecutivo>3</consecutivo>
+        <codigo>27110</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Impedanciometría</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>35000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>35000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>
