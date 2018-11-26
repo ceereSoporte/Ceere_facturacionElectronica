@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
   <documento_electronico>
-    <idnumeracion>107</idnumeracion>
-    <tipodocumentoelectronico>3</tipodocumentoelectronico>
-    <numero>222</numero>
+    <idnumeracion>265</idnumeracion>
+    <tipodocumentoelectronico>2</tipodocumentoelectronico>
+    <numero>12</numero>
     <idconceptonota>2</idconceptonota>
     <referencias>
       <referencia>
         <idnumeracion>73</idnumeracion>
         <tipodocumentoelectronico>1</tipodocumentoelectronico>
-        <numero>18966</numero>
+        <numero>18980</numero>
       </referencia>
     </referencias>
-    <fechadocumento>2018-11-23</fechadocumento>
-    <horadocumento>17:59:26</horadocumento>
+    <fechadocumento>2012-10-29</fechadocumento>
+    <horadocumento>14:08:41</horadocumento>
     <documentoexportacion>0</documentoexportacion>
     <documentCurrencyCode>COP</documentCurrencyCode>
     <idreporte>45</idreporte>
     <tipocontenido/>
     <adquiriente>
       <idtipodocumentoidentidad>11</idtipodocumentoidentidad>
-      <identificacion>1023541537</identificacion>
+      <identificacion>1054287935</identificacion>
       <digito_verificacion/>
-      <nombres>Matias </nombres>
-      <apellidos>Arango Ospina</apellidos>
+      <nombres>Jeronimo </nombres>
+      <apellidos>Alarcon Rodriguez</apellidos>
       <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
       <emailentrega>alejandrovelez74@gmail.com</emailentrega>
       <idciudad>CO05001</idciudad>
-      <direccion>Calle 102 A  No. 72-69 Pedregal</direccion>
-      <telefono>4715366</telefono>
+      <direccion>Cra. 84 B  No. 7-95 Apto 305 Belen</direccion>
+      <telefono>5838798</telefono>
       <idtiporegimen>1</idtiporegimen>
       <idactividadeconomica>0</idactividadeconomica>
       <grancontribuyente>0</grancontribuyente>
@@ -37,12 +37,21 @@
     <CorreosCopia>
       <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
     </CorreosCopia>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>1</taxevidenceindicator>
+        <base>25862</base>
+        <porcentaje>16</porcentaje>
+        <valor>4137.92</valor>
+      </impuesto>
+    </impuestos>
     <importes>
-      <totalImporteBruto>35000</totalImporteBruto>
-      <totalBaseImponible>35000</totalBaseImponible>
+      <totalImporteBruto>25862</totalImporteBruto>
+      <totalBaseImponible>25862</totalBaseImponible>
       <totalCargos>0</totalCargos>
       <totalAnticipos>0</totalAnticipos>
-      <TotalPagado>35000</TotalPagado>
+      <TotalPagado>29999.92</TotalPagado>
     </importes>
     <items>
       <item>
@@ -50,9 +59,9 @@
         <codigo>5</codigo>
         <codigo_extendido/>
         <descripcionItem>Apoyos profesionales especializados</descripcionItem>
-        <cantidad>1</cantidad>
-        <costoTotalSinImpuestos>35000</costoTotalSinImpuestos>
-        <precioUnitarioSinImpuestos>35000</precioUnitarioSinImpuestos>
+        <cantidad>0</cantidad>
+        <costoTotalSinImpuestos>0</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>0</precioUnitarioSinImpuestos>
         <totalImpuestos>0</totalImpuestos>
       </item>
     </items>

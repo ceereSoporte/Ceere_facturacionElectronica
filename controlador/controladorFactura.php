@@ -124,9 +124,9 @@ function consultaEmpresa()
         
         
         $docEm          = $lista['Id Empresa'];
-        $tipoDocEm      = $lista['Id Tipo de Documento'];
-        $nomEm          = $lista['Name Empresa'];
-        $departEm       = $lista['Department'];
+        $tipoDocEm      = utf8_encode($lista['Id Tipo de Documento']);
+        $nomEm          = utf8_encode($lista['Name Empresa']);
+        $departEm       = utf8_encode($lista['Department']);
         $direccionEm    = utf8_encode($lista['LineEmpresa']);
         $CiudadEm       = utf8_encode($lista['CityName']);
         $BarrioEm       = utf8_encode($lista['citySubdivisionName']);

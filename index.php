@@ -42,7 +42,7 @@
                 <ul class="nav nav-right">
                   <li><a href="./"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
                   <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
-                  <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li>
+                  <!-- <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li> -->
 <!--                  <li><a href="#"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li> -->
 
                 </ul>
@@ -201,12 +201,12 @@
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Tipo de Documento</span>  
                            <label class="mdl-textfield__label" for="contactName"> </label>
-                           <input class="mdl-textfield__input" disabled=""  value="<?php echo         $DescripcionDoc ; ?>" placeholder="" type="text" name="contactName2" id="contactName2">
+                           <input class="mdl-textfield__input" disabled=""  value="<?php echo         $DescripcionDoc ; ?>"placeholder="" type="text" name="TipoDocumento" id="TipoDocumento">
                         </div>
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Documento</span> 
                            <label class="mdl-textfield__label" for="contactName">  </label>
-                           <input class="mdl-textfield__input" disabled=""  value="<?php echo $docEm; ?>" type="text" name="contactName2" id="contactName2">
+                           <input class="mdl-textfield__input" disabled=""  value="<?php echo $docEm; ?>" type="text" name="contactName2" id="documentoEntidad">
                         </div>
                         <div class="mdl-textfield mdl-js-textfield">
                            <span> Razon social</span>  
@@ -246,7 +246,7 @@
                         <h4 class="mdl-typography--text-capitalize">Información Usuario</h4>
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Tipo de documento</span>
-                           <input class="mdl-textfield__input" disabled=""  value="<?php echo $DescripcionDocE; ?>"  type="text" name="contactName2" id="contactName2">
+                <input class="mdl-textfield__input" disabled=""  value="<?php echo $DescripcionDocE; ?>"  type="text" name="contactName2" id="contactName2">
                         </div>
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Identificación</span>
@@ -361,7 +361,9 @@
                       var direccion = document.getElementById("DireccionEntidad").value;
                       var telefono = document.getElementById("TelefonoEntidad").value;
                       var estadoFace = document.getElementById("EstadoFacturacionElectronica").value;
-                      
+                      var TipoDocumento = document.getElementById("TipoDocumento").value;
+
+
                      console.log(estadoFace);
                       
                      //INICIALIZAMOS UNA VARIABLE AUTOiNCREMENTAL
@@ -378,11 +380,15 @@
 
 
                      });
- configureLoadingScreen(screen);
+                  configureLoadingScreen(screen);
 
    // VALIDAACIONES DE CAMPOS VACIOS----------------------------      
-                     
-
+                      swal({
+                          type: 'error',
+                          title: 'prueba campo',
+                          text: TipoDocumento,
+                          
+                         })
                      if (NumeroFactura == "") {
                         swal({
                           type: 'error',
@@ -464,7 +470,21 @@
                         
                         if (estadoFace != 2) {
 
-                            $.ajax({
+
+
+                           swal({
+                                title: 'Creacion de nota Credito',
+                                text: "Esta seguro de generar una nota credito para anular esta factura electronica?",
+                                type: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                 confirmButtonText: 'Si, generar nota',
+                                 cancelButtonText: 'Cancelar',
+                              }).then((result) => {
+                                if (result.value) {
+                                
+                                  $.ajax({
                                type: "POST",
                                url: "controlador/generadorXMLNotaC.php",
                                data: dataString,
@@ -477,6 +497,10 @@
                                   )
                                }
                                });
+
+                                }
+                              })
+                           
                         }else{
                           swal({
                           type: 'error',

@@ -179,6 +179,9 @@ require_once("../controlador/wbsFactura.php");
 
 
        switch ($tipoDocE) {
+   			case 1:
+   	    		$tipoDocE = 13;
+       			break;
    			case 2:
    	    		$tipoDocE = 13;
        			break;

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>12765</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2018-07-31</fechadocumento>
+    <horadocumento>08:32:16</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>45</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>70.070.453</identificacion>
+      <digito_verificacion/>
+      <nombres>Horacio  </nombres>
+      <apellidos>Gomez Gomez</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>San Anotnio </direccion>
+      <telefono> </telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <importes>
+      <totalImporteBruto>30000</totalImporteBruto>
+      <totalBaseImponible>30000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>30000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>00000</codigo>
+        <codigo_extendido/>
+        <descripcionItem>(+) Cuota No 1 de Presupuesto No A22372</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>105600</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>105600</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>2</consecutivo>
+        <codigo>00000</codigo>
+        <codigo_extendido/>
+        <descripcionItem>(+) Cuota No 12 de Presupuesto No A4351</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>50000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>50000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>3</consecutivo>
+        <codigo>00100006</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Citas particular</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>30000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>30000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

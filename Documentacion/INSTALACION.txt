@@ -64,7 +64,9 @@ se recomienda ejecutar cada schema uno a uno para que no haya ningun problema.
 PARA ACTIVAR EL XAMP PARA PODER VERSE EN RED
 
 Dentro de la carpeta documentacion de facturacion hay un archivo pdf llamado: "Abrir acceso por red a Xampp" en el se explica perfectamente como abrir la conexion 
-en red para los equipo que esten red o por internt wifi.
+en red para los equipo que esten red o por internet wifi.
+
+Despues de configurado el servidor las estaciones a las que se van a conectar al proyecto de facturacion electronica se deberan conectar al numero de la ip del servidor
 
 
 ----------------------------------------------------------------------------------------------------------------------------------

@@ -561,18 +561,8 @@ $emailEmpresa;
 
    
 
-      //actualiza el esatdo de la factura por anulada electronicamente
-       $consultaUpdate = "UPDATE Factura set EstadoFacturaElectronica=(?) where [No Factura]=(?) ";
-      $params = array('3' ,$numF); 
-
-      $ejecutarUpdate = sqlsrv_query($conn, $consultaUpdate, $params);
-    
-        if ($ejecutarUpdate === false) {
-            die(print_r(sqlsrv_errors(), true));
-        }
-
-		  
-  echo "<xmp>".$xml->saveXML()."</xmp>"; 
+   
+  // echo "<xmp>".$xml->saveXML()."</xmp>"; 
 
 	$xml->save("../xmls/faceND_".$NumND.".xml");  
 
@@ -584,6 +574,22 @@ $emailEmpresa;
   $respuestaSuccess = $r->success;
   $respuestaMsg = $r->msg;
 
-  echo $respuestaMsg;
-	
+if ($respuestaSuccess == true) {
+    // modulo para acturalizar la tabla factura
+
+         //actualiza el esatdo de la factura tiene una nota debito electronicamente
+       $consultaUpdate = "UPDATE Factura set EstadoFacturaElectronica=(?) where [No Factura]=(?) ";
+      $params = array('3' ,$numF); 
+
+      $ejecutarUpdate = sqlsrv_query($conn, $consultaUpdate, $params);
+    
+        if ($ejecutarUpdate === false) {
+            die(print_r(sqlsrv_errors(), true));
+        }
+
+      
+    echo "Se registro correctemente la nota debito: ".$NumND." Asociada a la factura: ".$numF;
+  }elseif($respuestaSuccess == false){
+    echo $respuestaMsg;
+  }
  ?>

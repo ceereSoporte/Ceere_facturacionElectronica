@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>73</idnumeracion>
+    <numero>12760</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2018-07-30</fechadocumento>
+    <horadocumento>16:12:58</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>45</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>12</idtipodocumentoidentidad>
+      <identificacion>1.037.650.854</identificacion>
+      <digito_verificacion/>
+      <nombres>Daniela  </nombres>
+      <apellidos>Amaya Jaramillo</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Cra 62 23 12</direccion>
+      <telefono>279.20.23</telefono>
+      <idtiporegimen>1</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <importes>
+      <totalImporteBruto>45000</totalImporteBruto>
+      <totalBaseImponible>45000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>45000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>00000</codigo>
+        <codigo_extendido/>
+        <descripcionItem>(+) Cuota No 6 de Presupuesto No A2110</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>45000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>45000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>2</consecutivo>
+        <codigo>00000</codigo>
+        <codigo_extendido/>
+        <descripcionItem>(+) Cuota No 6 de Presupuesto No A4968</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>60000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>60000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>3</consecutivo>
+        <codigo>00000</codigo>
+        <codigo_extendido/>
+        <descripcionItem>(+) Cuota No 1 de Presupuesto No R7005</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>45000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>45000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

@@ -48,7 +48,7 @@ require_once("../controlador/wbsFactura.php");
    $HoraActual = date("H:i:s");
 
    $fechahoraActual = date("Y-m-d H:i:s");
-   $NumeroNc;
+   $NumeroNc = '';
  $conn = OpenConnection();
 $consulta = "SELECT * from [Face Ultima Nota Credito]";
 $ejecutar6 = sqlsrv_query($conn, $consulta);
@@ -63,7 +63,13 @@ if ($ejecutar6 === false) {
         
         $i++;
     }
-    $NoNotaCredito = $NumeroNc+1;
+
+    if ($NumeroNc == '') {
+        $NoNotaCredito = '1';
+    }else{
+        $NoNotaCredito = $NumeroNc+1;
+    }
+
 
 
 
@@ -387,7 +393,7 @@ $emailEmpresa;
               $referencias->appendChild($referencia);
 
                 $idnumeracionR=$xml->createElement("idnumeracion",$IdNumeracionFenalcoFactura);
-                $referencias->appendChild($idnumeracionR);
+                $referencia->appendChild($idnumeracionR);
                 
                 $tipodocumentoelectronicoR=$xml->createElement("tipodocumentoelectronico",1);
                 $referencia->appendChild($tipodocumentoelectronicoR);
@@ -604,8 +610,9 @@ $emailEmpresa;
       }
     }
 
-  
 
+
+      
 
 	$xml->save("../xmls/faceNC_".$NoNotaCredito.".xml");  
 
@@ -657,7 +664,7 @@ $emailEmpresa;
         }
 
       
-    echo "La factura numero ".$numF." ha anulada correctamente";
+    echo "La factura numero: ".$numF." ha anulada correctamente con el numero de nota credito: ".$NoNotaCredito;
   }elseif($respuestaSuccess == false){
     echo $respuestaMsg;
   }

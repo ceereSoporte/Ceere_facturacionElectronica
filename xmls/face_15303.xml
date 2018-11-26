@@ -2,7 +2,7 @@
 <root>
   <documento_electronico>
     <idnumeracion>73</idnumeracion>
-    <numero>2699</numero>
+    <numero>15303</numero>
     <referencias>
       <referencia>
         <idnumeracion/>
@@ -11,23 +11,23 @@
         <idconceptonota/>
       </referencia>
     </referencias>
-    <fechadocumento>2011-01-20</fechadocumento>
-    <horadocumento>16:05:37</horadocumento>
+    <fechadocumento>2015-03-17</fechadocumento>
+    <horadocumento>14:23:57</horadocumento>
     <documentoexportacion>0</documentoexportacion>
     <documentCurrencyCode>COP</documentCurrencyCode>
     <idreporte>45</idreporte>
     <tipocontenido/>
     <adquiriente>
-      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
-      <identificacion>1152190104</identificacion>
+      <idtipodocumentoidentidad>11</idtipodocumentoidentidad>
+      <identificacion>1089385349</identificacion>
       <digito_verificacion/>
-      <nombres>Cristian </nombres>
-      <apellidos>Chavarria  Correa</apellidos>
+      <nombres>Isaac </nombres>
+      <apellidos>Aristizabal Zuluaga</apellidos>
       <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
       <emailentrega>alejandrovelez74@gmail.com</emailentrega>
       <idciudad>CO05001</idciudad>
-      <direccion>Carrera 106 No. 33b10 Apto.301</direccion>
-      <telefono>2523820</telefono>
+      <direccion>Calle 4 Sur  No. 38 73</direccion>
+      <telefono>3123374</telefono>
       <idtiporegimen>1</idtiporegimen>
       <idactividadeconomica>0</idactividadeconomica>
       <grancontribuyente>0</grancontribuyente>
@@ -37,21 +37,31 @@
       <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
     </CorreosCopia>
     <importes>
-      <totalImporteBruto>20000</totalImporteBruto>
-      <totalBaseImponible>20000</totalBaseImponible>
+      <totalImporteBruto>55000</totalImporteBruto>
+      <totalBaseImponible>55000</totalBaseImponible>
       <totalCargos>0</totalCargos>
       <totalAnticipos>0</totalAnticipos>
-      <TotalPagado>20000</TotalPagado>
+      <TotalPagado>55000</TotalPagado>
     </importes>
     <items>
       <item>
         <consecutivo>1</consecutivo>
-        <codigo>1006237</codigo>
+        <codigo>5</codigo>
         <codigo_extendido/>
-        <descripcionItem>Audiometria tonal exalumno</descripcionItem>
+        <descripcionItem>Apoyos profesionales especializados</descripcionItem>
         <cantidad>1</cantidad>
-        <costoTotalSinImpuestos>20000</costoTotalSinImpuestos>
-        <precioUnitarioSinImpuestos>20000</precioUnitarioSinImpuestos>
+        <costoTotalSinImpuestos>55000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>55000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>2</consecutivo>
+        <codigo>6061364</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Contrato Municipio de medellín, secretaría de educación</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>32215900</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>32215900</precioUnitarioSinImpuestos>
         <totalImpuestos>0</totalImpuestos>
       </item>
     </items>
