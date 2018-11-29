@@ -1,44 +1,46 @@
 <?php 
-	
+
+	session_start();
+
 	include('../BD/conexion_sql_server.php');
 
-	$conn = OpenConnection();
-    
-    $consulta = "SELECT *  FROM  [Face Cnsta Login] 
-                        WHERE [Face Cnsta Login].NombreUsuario  = '" . $_POST['UserLg'] . "' and  [Face Cnsta Login].password = '".$_POST['PassLg']."'";
-    $ejecutar = sqlsrv_query($conn, $consulta);
+
+    if (isset($_POST['submit'])) {
+        
+            echo 'entraste al controlador';
+            $user =  $_POST['UserLg'];
+            $password =  $_POST['PassLg']; 
+            $conn = OpenConnection();
 
 
- 	while ($row = sqlsrv_fetch_array($ejecutar)) {
 
- 		$NombreDelUsuario   = $row['NomUsuario'];
+            
+            $consulta = "SELECT *  FROM  [Face Cnsta Login] 
+                                WHERE [Face Cnsta Login].NombreUsuario ='".$user."' and  [Face Cnsta Login].passwordUsuario = '".$password."'";
+            $ejecutar = sqlsrv_query($conn, $consulta);
+
+
+            while ($row = sqlsrv_fetch_array($ejecutar)) {
+                $usuario   = $row['NombreUsuario'];
+                $contrasena = $row['passwordUsuario'];
+                $NombreDelUsuario   = $row['NomUsuario'];
+            }
+
+
+            if (($usuario == $user) || ($contrasena == $password)) {
+                $_SESSION['userName'] = $NombreDelUsuario;
+                echo $_SESSION['userName'] ;
+                header("location: ../principal.php"); 
+            }
+
+              
+
+    }else{
+         echo 'coma mierda la otra validacion';
+        header("location: ../index.php");
+
 
  	}
 
-
- 	if ($NombreDelUsuario != null) {
-		jsondata['success'] = true;
- 		$jsondata['message'] = 'bienvenido '.$NombreDelUsuario;
- 		header('Location: index.php');
- 	}else{
- 		 $jsondata['success'] = false;
-        $jsondata['message'] = 'Usuario o Contraseña incorecta';
- 	}
-
-    //Aunque el content-type no sea un problema en la mayoría de casos, es recomendable especificarlo
-    header('Content-type: application/json; charset=utf-8');
-    echo json_encode($jsondata);
-    exit();
-
-}
-// if ($row_count == 1 ) {
-//     		$datos = sqlsrv_fetch_array($ejecutar);
-//     		json_encode(array('error'=>false, 'Nombre'=>$datos['NomUsuario']));
-
-//     }else{
-//     	json_encode(array('error'=>false));
-//     	echo 'Usuario o Contraseña incorecta';
-
-//     }
 
  ?>

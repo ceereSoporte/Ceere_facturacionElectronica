@@ -5,28 +5,8 @@ require_once("../controlador/wbsFactura.php");
 
      $conn = OpenConnection();
 // ------------------------------------------------------------------
-	// VARIABLES DE CONFIGURACION DE CADA EMPRESA
-		$IdNumeracionFenalcoFactura;	
-		$plantillaVersionGrafica; 
-
-
-		$consulta = "SELECT *  FROM  ConfiguracionFace";
-    $ejecutar7 = sqlsrv_query($conn, $consulta);
-    
-    if ($ejecutar7 === false) {
-        die(print_r(sqlsrv_errors(), true));
-    }
-    $i = 0;
-    while ($row = sqlsrv_fetch_array($ejecutar7)) {
-
-        $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
-        $plantillaVersionGrafica     = $row['VersionGrafica'];
-
-     
-    }	
-			
-// ------------------------------------------------------------------
-
+		
+	
 
 	$conceptoItem = json_decode($_POST['conceptoItem']);
 	// $posicionItem = $_POST['posicion'];
@@ -54,6 +34,7 @@ require_once("../controlador/wbsFactura.php");
      $NumCompro;
      $Porcent;
      $Descuentos;
+     $IdEmpresaV;
 
     $consulta = "SELECT *  FROM  [Face Cnsta Factura] 
                         WHERE [Face Cnsta Factura].[Id Factura] = '" . $busqueda . "'";
@@ -80,7 +61,8 @@ require_once("../controlador/wbsFactura.php");
         $NumCompro = $row['CV2ID'];
         $Porcent   = $row['porcentaje'];
         $Descuentos   = $row['Descuentos'];  
-        $PrefijoF   = $row['PrefijoFac'];   
+        $PrefijoF   = $row['PrefijoFac'];
+        $IdEmpresaV   = $row['IdEmpresaV'];   
     }
     
     if ($medioPagoF == 2) {
@@ -94,6 +76,29 @@ require_once("../controlador/wbsFactura.php");
         $NomMedioPago = "tarjeta de credito";
         $medioPagoF    = 41;
         
+    }
+
+
+
+//CONSULTA CONFIGURACION DE LA FACTURACION ELECTRONICA
+    // VARIABLES DE CONFIGURACION DE CADA EMPRESA
+		$IdNumeracionFenalcoFactura;	
+		$plantillaVersionGrafica; 
+
+
+		$consulta = "SELECT * from  ConfiguracionFace cf join EmpresaV ev on ev.[Id EmpresaV] = cf.IdEmpresaV where cf.IdEmpresaV = ".$IdEmpresaV;
+    $ejecutar7 = sqlsrv_query($conn, $consulta);
+    
+    if ($ejecutar7 === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    $i = 0;
+    while ($row = sqlsrv_fetch_array($ejecutar7)) {
+
+        $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
+        $plantillaVersionGrafica     = $row['VersionGrafica'];
+
+     
     }
 
 //CONSULTA EMPRESA------------------------------------------
