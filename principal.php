@@ -53,7 +53,7 @@ if (isset($_SESSION['userName'])) {
                 <h1 class="logo"><img src="img/logo.png" alt=""></h1>
 
                 <ul class="nav nav-right">
-                   <li style="color: white; font-size: 17px;  "> Usuario: <?php echo $NombreDelUsuario; ?></li>
+                   <li style="color: white; font-size: 17px;  "> <i style="font-size: 25px " class="fa fa-user"></i> <?php echo $NombreDelUsuario; ?></li>
                   <li><a href="./principal.php"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
                   <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
                   <!-- <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li> -->
@@ -500,7 +500,7 @@ if (isset($_SESSION['userName'])) {
                                 
                                   $.ajax({
                                type: "POST",
-                               url: "controlador/generadorXMLNotaC.php",
+                               url: "controlador/generadorXMLNotaCA.php",
                                data: dataString,
                                cache: false,
                                success: function(html) {

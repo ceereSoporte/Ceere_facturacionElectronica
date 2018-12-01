@@ -1,86 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,500,700,900' rel='stylesheet' type='text/css'>
-      <!-- ====Font Awesome CSS==== -->
-      <link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-      <!-- ====Favicons==== -->
-      <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
-      <link href="img/favicon.png" rel="icon" type="image/x-icon">
-      <!-- ====Bootstrap Core CSS==== -->
-      <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+    <title>Facturacion Electronica Ceere</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,500,700,900' rel='stylesheet' type='text/css'>
+  <!-- ====Font Awesome CSS==== -->
+  <link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <!-- ====Favicons==== -->
+  <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="img/favicon.png" rel="icon" type="image/x-icon">
+
+  <!-- ====Bootstrap Core CSS==== -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+
+  <!-- ====Material Design Lite Core CSS==== -->
+  <link href="css/material.min.css" rel="stylesheet" type='text/css'>
+
+  <!-- ====Core CSS==== -->
+  <link href="css/style.css" rel="stylesheet" type='text/css'>
+
+  <!-- ====Main Color Scheme CSS==== -->
+  <link href="css/main-color-4.css" rel="stylesheet" type='text/css' id="mainColorScheme">
      
       <link rel="stylesheet" href="./css/sweetalert2.min.css">
-
-
-  
-  <style>
-        
-      body{
-        background-image: url("./img/fondoFactura.png");
+    <style>
+     body{
+        background-image: url("img/banner-bg.jpg");
+        background-position: center;
+        background-size: auto;
       }
-
-      #DivformLogin{
-        background-color: rgba(249, 249, 249,0.5);
-        height: 100%; 
-        margin-left: 50%;
-        transform: translateX(-50%);
-        margin-top:10%;
-       -webkit-box-shadow: 2px -1px 29px -4px rgba(0,0,0,0.37);
--moz-box-shadow: 2px -1px 29px -4px rgba(0,0,0,0.37);
-box-shadow: 2px -1px 29px -4px rgba(0,0,0,0.37);
-      
-      padding-bottom: 2%;
-
-
-      }
-
-      #logoLogin{
-          margin-left: 50%;
-          transform: translateX(-50%);
-          background-color: rgb(143, 174, 224);
-          margin-bottom: 2%; 
-      }
-
-  </style>
+    </style>
 </head>
-
-
 <body>
 
-    <div class="col-md-6" id="DivformLogin">
-        
-        <div class="col-md-11" id="logoLogin"  style="">
-           
-            <h1 style="text-align: center;">facturacion electronica</h1> 
-
-        </div>
-
-        <form  id="formLogin" method="post" action="./controlador/controladorLogin.php">
-            <div class="col-md-12">
-              <input class="form-control" type="text" id="UserLg" name="UserLg" placeholder="Ingrese su usuario" required>
-  
-              <input class="form-control" style="margin-top: 10px;" id="PassLg" name="PassLg" type="password" placeholder="Ingrese la contraseña" required>
-              
+    <div class="container" align="center">   
+        <div class="loginForm" style="padding-top:150px">
+          <div class="mdl-card mdl-shadow--2dp" style="width:450px">
+            <div class="mdl-card__title mdl-card--expand">
+              <div class="modal--logo">
+                <img src="img/logo.png" alt="">
               </div>
-
-              <input type="submit" name="submit" class="btn btn-info" value="Ingresar"  style="float: right; margin-top: 2%">  
+            </div>
+            <div class="mdl-card__supporting-text"> 
+              <form method="post" action="./controlador/controladorLogin.php" id="loginForm">
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" id="UserLg" name="UserLg"  required>
+                  <label class="mdl-textfield__label" for="UserLg">Usuario</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" id="PassLg" name="PassLg" type="password" required>
+                  <label class="mdl-textfield__label" for="PassLg">Contraseña</label>
+                </div>
+                
+                <button type="submit" name="submit" class="login-form-submit-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Ingresar</button>
+              </form>
+            </div>
           
-        </form>
-    </div>
+          </div>
+        </div>
+      </div>
+           
+  
+  <!-- Login Form End -->
+  
+  
+  <!-- ====jQuery Core JavaScript==== -->
+  <script src="js/jquery-2.2.2.min.js"></script>
 
-</body>
- <script src="js/jquery-2.2.2.min.js"></script>
+  <!-- ====Bootstrap Core JavaScript==== -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- ====Material Design Lite Core JavaScript==== -->
+  <script src="js/material.min.js"></script>
+  
+    <!-- ====jQuery Validation JavaScript==== -->
+    <script src="js/jquery.validate.min.js"></script>
+
+  <!-- ====Core JavaScript==== -->
+  <script src="js/main.js"></script>
+
+  <!-- ====Color Switcher JavaScript==== -->
+    <script src="js/color-switcher.js"></script>
+
  <script src="js/sweetalert2.js"></script>
  <script src="js/login.js"></script>
 
-
-      <!-- ====Bootstrap Core JavaScript==== -->
-      <script src="js/bootstrap.min.js"></script>
-
-
+</body>
 </html>

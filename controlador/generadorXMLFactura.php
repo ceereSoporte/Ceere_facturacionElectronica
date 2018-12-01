@@ -232,7 +232,10 @@ require_once("../controlador/wbsFactura.php");
     if ($CodActividaEco == null) {
     	$CodActividaEco = '0';
     }
- 
+ 	
+ 	if ($RegimenE == null) {
+ 		$RegimenE = '0';
+ 	}
  
     $telefonoEntidad=str_replace("-","",$telefonoE);
 

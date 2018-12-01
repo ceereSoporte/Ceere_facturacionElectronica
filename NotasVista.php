@@ -221,8 +221,16 @@ if (isset($_SESSION['userName'])) {
             console.log(ConceptoNota);
             console.log( NumeroNota );
 
+               if (NumeroNota == "") {
+                        swal({
+                          type: 'error',
+                          title: 'Campo vacio',
+                          text: 'El campo Numero de nota esta vacio',
+                          
+                        })
+                        return false;
 
-              if (NumeroFactura == "") {
+               }else if (NumeroFactura == "") {
                         swal({
                           type: 'error',
                           title: 'Campo vacio',
@@ -231,7 +239,7 @@ if (isset($_SESSION['userName'])) {
                         })
                         return false;
 
-                     } 
+               }
              configureLoadingScreen(screen);
 
 
@@ -252,15 +260,15 @@ if (isset($_SESSION['userName'])) {
             });
          }else{
             //  AJAX code to submit form.
-            // $.ajax({
-            // type: "POST",
-            // url: "controlador/generadorXMLNota.php",
-            // data: dataString,
-            // cache: false,
-            // success: function(html) {
-            // alert(html);
-            // }
-            // });
+            $.ajax({
+            type: "POST",
+            url: "controlador/generadorXMLNotaC.php",
+            data: dataString,
+            cache: false,
+            success: function(html) {
+            alert(html);
+            }
+            });
          }
           
             

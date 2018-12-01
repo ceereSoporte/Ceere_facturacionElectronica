@@ -202,6 +202,11 @@ function consultaEntidad()
             $sNomE = "";
         }
 
+    
+    if ($RegimenE == null) {
+        $RegimenE = '0';
+    }
+ 
 
         $emailE =  'alejandrovelez74@gmail.com';
     }

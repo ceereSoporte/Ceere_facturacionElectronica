@@ -6,8 +6,8 @@ class fenalco
   
 		 function EnviarFactura($NumeroFactura)
 			{
-				$login = "ceerewebs";
-				$password = "Ceerewebs1*";
+				$login = "oyemeweb";
+				$password = "Oyemeweb1*";
 				$wsld_url = "http://192.175.120.196:8080/FactibleWebService/FacturacionWebService?wsdl";
 				$client = new SOAPClient($wsld_url);
 				//se vuelve a instancear la url del web service para arreglar el error que sale 
@@ -56,8 +56,8 @@ class fenalco
 
 			function EnviarNotaCredito($NumeroNota)
 			{
-				$login = "ceerewebs";
-				$password = "Ceerewebs1*";
+				$login = "oyemeweb";
+				$password = "Oyemeweb1*";
 				$wsld_url = "http://192.175.120.196:8080/FactibleWebService/FacturacionWebService?wsdl";
 				$client = new SOAPClient($wsld_url);
 				//se vuelve a instancear la url del web service para arreglar el error que sale 
@@ -107,8 +107,8 @@ class fenalco
 
 			function EnviarNotaDebito($NumeroNota)
 			{
-				$login = "ceerewebs";
-				$password = "Ceerewebs1*";
+				$login = "oyemeweb";
+				$password = "Oyemeweb1*";
 				$wsld_url = "http://192.175.120.196:8080/FactibleWebService/FacturacionWebService?wsdl";
 				$client = new SOAPClient($wsld_url);
 				//se vuelve a instancear la url del web service para arreglar el error que sale 

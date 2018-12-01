@@ -7,28 +7,6 @@ require_once("../controlador/wbsFactura.php");
 	$ConceptoNotaD = $_POST['ConceptoNota'];
 
   $conn = OpenConnection();
-// ------------------------------------------------------------------
-  // VARIABLES DE CONFIGURACION DE CADA EMPRESA
-    $IdNumeracionFenalcoFactura; 
-    $IdNumeracionFenalcoNotaDebito;  
-    $plantillaVersionGrafica; 
-
-
-    $consulta = "SELECT *  FROM  ConfiguracionFace";
-    $ejecutar7 = sqlsrv_query($conn, $consulta);
-    
-    if ($ejecutar7 === false) {
-        die(print_r(sqlsrv_errors(), true));
-    }
-    $i = 0;
-    while ($row = sqlsrv_fetch_array($ejecutar7)) {
-
-        $IdNumeracionFenalcoNotaDebito  = $row['IdresolucionNotaDebito'];
-         $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
-        $plantillaVersionGrafica     = $row['VersionGrafica'];
-
-     
-    } 
 
 //CONSULTA NOTA--------------------------------------------------------------------
 
@@ -100,7 +78,7 @@ $totalND = ($valorND + $valorIvaND);
      $valorLetrasFactura;
      $DocUsuario;
      $idTerminal;
-
+     $IdEmpresaV;
      $conn = OpenConnection();
     
     $consulta = "SELECT *  FROM  [Face Cnsta Factura] 
@@ -137,7 +115,7 @@ $totalND = ($valorND + $valorIvaND);
         $idTerminal   = $row['IdTerminal'];
         $retencionFace   = $row['retencionfacturaElectronica'];
         $conceptoFace   = $row['ConceptoFacturaElectronica'];
-
+        $IdEmpresaV   = $row['IdEmpresaV'];   
             
     }
     
@@ -154,7 +132,27 @@ $totalND = ($valorND + $valorIvaND);
         
     }
 
+// ------------------------------------------------------------------
+  // VARIABLES DE CONFIGURACION DE CADA EMPRESA
+    $IdNumeracionFenalcoNotaCredito;  
+    $IdNumeracionFenalcoFactura;  
+    $plantillaVersionGrafica; 
 
+
+    $consulta = "SELECT * from  ConfiguracionFace cf join EmpresaV ev on ev.[Id EmpresaV] = cf.IdEmpresaV where cf.IdEmpresaV = ".$IdEmpresaV;
+    $ejecutar7 = sqlsrv_query($conn, $consulta);
+    
+    if ($ejecutar7 === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    $i = 0;
+    while ($row = sqlsrv_fetch_array($ejecutar7)) {
+        $IdNumeracionFenalcoNotaDebito = $row['IdresolucionNotaDebito'];  
+        $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
+        $plantillaVersionGrafica     = $row['VersionGrafica'];
+
+     
+    }
 
 
 //CONSULTA EMPRESA---------------------------------------------------------------------

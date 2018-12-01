@@ -31,6 +31,8 @@
                 $_SESSION['userName'] = $NombreDelUsuario;
                 echo $_SESSION['userName'] ;
                 header("location: ../principal.php"); 
+            }else{
+                header("location: ../index.php"); 
             }
 
               

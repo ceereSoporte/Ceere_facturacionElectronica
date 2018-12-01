@@ -2,79 +2,52 @@
 include("../BD/conexion_sql_server.php");
 require_once("../controlador/wbsFactura.php");
 
+	// $NumeroFac = $_POST['NumeroFac'];
+	// $NumeroNota = $_POST['NumeroNota'];
+	// $ConceptoNota = $_POST['ConceptoNota'];
+ //  $TipoNota = $_POST['TipoNota'];
+  
+
   $conn = OpenConnection();
 // ------------------------------------------------------------------
-  // VARIABLES DE CONFIGURACION DE CADA EMPRESA
-    $IdNumeracionFenalcoNotaCredito;  
-    $IdNumeracionFenalcoFactura;  
-    $plantillaVersionGrafica; 
+ 
 
 
-    $consulta = "SELECT * from  ConfiguracionFace cf join EmpresaV ev on ev.[Id EmpresaV] = cf.IdEmpresaV where cf.IdEmpresaV = ".$IdEmpresaV;
-    $ejecutar7 = sqlsrv_query($conn, $consulta);
-    
-    if ($ejecutar7 === false) {
-        die(print_r(sqlsrv_errors(), true));
-    }
-    $i = 0;
-    while ($row = sqlsrv_fetch_array($ejecutar7)) {
 
-        $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
-        $plantillaVersionGrafica     = $row['VersionGrafica'];
 
-     
-    }
-
+//prueba xml
   $NumeroFac = $_POST['NumeroFac'];
-  $busquedaNota = $_POST['NumeroNota'];
-  $ConceptoNotaD = $_POST['ConceptoNota'];
-
-//AQUI SE BUSCA LA NOTA PARCIAL----------------------------------------------
-
-    $NumNC;
-    $DocumentoEntidad;
-    $concetNCText;
-    $valorNC;
-    $porcentDescNC;
-    $ValorDescNC;
-    $porcentIvaNC;
-    $NoFacNC;
-    $IdConcepNC;
-    $FechaNC;
-    $HoraNc; 
-    $nombreEntidad;
+  $conceptoItem = json_decode($_POST['conceptoItem']);
+  $RetenImpuesto = $_POST['RetencionImpuesto'];
+  $ConceptoFacturaE = $_POST['ConceptoFactura'];
 
 
-    $conn = OpenConnection();
+//CONSULTA ULTIMA NOTA---------------------------------------------------------------------
+   $fechaActual = date("Y-m-d");
+   $HoraActual = date("H:i:s");
 
-    $consulta  = "SELECT * from [face Cnta Nota Credito] 
-                where [face Cnta Nota Credito].[NumNotaCredito]='" . $busquedaNota . "'";
-    $ejecutar4 = sqlsrv_query($conn, $consulta);
-    if ($ejecutar4 === false) {
+   $fechahoraActual = date("Y-m-d H:i:s");
+   $NumeroNc = '';
+ $conn = OpenConnection();
+$consulta = "SELECT * from [Face Ultima Nota Credito]";
+$ejecutar6 = sqlsrv_query($conn, $consulta);
+if ($ejecutar6 === false) {
         die(print_r(sqlsrv_errors(), true));
     }
     $i = 0;
+    while ($lista = sqlsrv_fetch_array($ejecutar6)) {
 
+        $NumeroNc = utf8_encode($lista['NumNotaC']);
+        
+        
+        $i++;
+    }
 
-
-        while ($lista = sqlsrv_fetch_array($ejecutar4)) {
-           $NumNC           = $lista['NumNotaCredito'];
-           $fechaNC         =  $lista['fechaNotaNC']->format('Y-m-d');
-           $HoraNc          = $lista['fechaNotaNC']->format('H:i:s');
-           $DocumentoEntidad = $lista['EntidadDocumento'];
-           $concetNCText    = $lista['ConceptoTexto'];
-           $valorNC         = $lista['ValorNotaC'];
-           $porcentDescNC   = $lista['PorcentajeDescuentoNC'];
-           $ValorDescNC     = $lista['ValorDescuentoNC'];
-           $porcentIvaNC    = $lista['porcentajeIvaNC'];
-           $NoFacNC         = $lista['NoFactura'];
-           $nombreEntidad         = $lista['NombreEntidad'];
-           $IdConcepNC      = $lista['IdConcpetoNC'];
-           
-
-            $i++;
-        }
-
+    if ($NumeroNc == '') {
+        $NoNotaCredito = '1';
+    }else{
+        $NoNotaCredito = $NumeroNc+1;
+    }
 //CONSULTA FACTURA------------------------------------------------------------------
 
 	   $numF;
@@ -99,7 +72,7 @@ require_once("../controlador/wbsFactura.php");
      $valorLetrasFactura;
      $DocUsuario;
      $idTerminal;
-    $IdEmpresaV;
+      $IdEmpresaV;
 
      $conn = OpenConnection();
     
@@ -135,7 +108,7 @@ require_once("../controlador/wbsFactura.php");
         $valorLetrasFactura   = $row['valorLetrasFactura'];    
         $DocUsuario   = $row['DocUsuario'];    
         $idTerminal   = $row['IdTerminal'];
-         $IdEmpresaV   = $row['IdEmpresaV'];      
+        $IdEmpresaV   = $row['IdEmpresaV'];       
     }
     
     if ($medioPagoF == 2) {
@@ -149,6 +122,30 @@ require_once("../controlador/wbsFactura.php");
         $NomMedioPago = "tarjeta de credito";
         $medioPagoF    = 41;
         
+    }
+
+
+    
+// ------------------------------------------------------------------
+  // VARIABLES DE CONFIGURACION DE CADA EMPRESA
+    $IdNumeracionFenalcoNotaCredito;  
+    $IdNumeracionFenalcoFactura;  
+    $plantillaVersionGrafica; 
+
+
+    $consulta = "SELECT * from  ConfiguracionFace cf join EmpresaV ev on ev.[Id EmpresaV] = cf.IdEmpresaV where cf.IdEmpresaV = ".$IdEmpresaV;
+    $ejecutar7 = sqlsrv_query($conn, $consulta);
+    
+    if ($ejecutar7 === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    $i = 0;
+    while ($row = sqlsrv_fetch_array($ejecutar7)) {
+        $IdNumeracionFenalcoNotaCredito = $row['IdresolucionNotaCredito'];  
+        $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
+        $plantillaVersionGrafica     = $row['VersionGrafica'];
+
+     
     }
 
 //CONSULTA EMPRESA---------------------------------------------------------------------
@@ -587,7 +584,29 @@ $emailEmpresa;
 
   if ($respuestaSuccess == true) {
     // modulo para acturalizar la tabla factura
-     
+      $paInsertAnulada = "{call Face_PA_Insertar_Nota_Credito_anulada(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+
+      $params = array(
+        array($NoNotaCredito, SQLSRV_PARAM_IN),
+        array($fechahoraActual, SQLSRV_PARAM_IN),
+        array($docE, SQLSRV_PARAM_IN),
+        array('Anulacion de Factura No.'.$NumeroFac, SQLSRV_PARAM_IN),
+        array($totF, SQLSRV_PARAM_IN),
+        array($porcentDescuento, SQLSRV_PARAM_IN),
+        array($Descuentos, SQLSRV_PARAM_IN),
+        array($ivaF, SQLSRV_PARAM_IN),
+        array($valorLetrasFactura, SQLSRV_PARAM_IN),
+        array($docEmpresa, SQLSRV_PARAM_IN),
+        array($DocUsuario, SQLSRV_PARAM_IN),
+        array($idTerminal, SQLSRV_PARAM_IN),
+        array($NumeroFac, SQLSRV_PARAM_IN),
+        
+    );
+     $ejecutarCrear = sqlsrv_query($conn, $paInsertAnulada, $params);
+    
+       if ($ejecutarCrear === false) {
+           die(print_r(sqlsrv_errors(), true));
+       }
 
       //actualiza el esatdo de la factura por anulada electronicamente
        $consultaUpdate = "UPDATE Factura set EstadoFacturaElectronica=(?) where [No Factura]=(?) ";
