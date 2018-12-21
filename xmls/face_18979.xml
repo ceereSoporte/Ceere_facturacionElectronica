@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>393</idnumeracion>
+    <numero>18979</numero>
+    <fechadocumento>2018-11-15</fechadocumento>
+    <horadocumento>15:01:15</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>86</idreporte>
+    <adquiriente>
+      <idtipodocumentoidentidad>12</idtipodocumentoidentidad>
+      <identificacion>1036132287</identificacion>
+      <digito_verificacion/>
+      <nombres>Yuli Valeria</nombres>
+      <apellidos>Sosa Palacio</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Kilometro 7 Antigua Via A Guarne</direccion>
+      <telefono>3660080</telefono>
+      <idtiporegimen>0</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <importes>
+      <totalImporteBruto>45000</totalImporteBruto>
+      <totalBaseImponible>45000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>45000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>5</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Apoyos profesionales especializados</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>45000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>45000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+    <datosextra>
+      <datoextra>
+        <clave>MEDIO_PAGO</clave>
+        <valor>Efectivo</valor>
+      </datoextra>
+    </datosextra>
+  </documento_electronico>
+</root>

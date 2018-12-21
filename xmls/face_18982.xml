@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>393</idnumeracion>
+    <numero>18982</numero>
+    <referencias>
+      <referencia>
+        <idnumeracion/>
+        <prefijo/>
+        <numero/>
+        <idconceptonota/>
+      </referencia>
+    </referencias>
+    <fechadocumento>2018-11-19</fechadocumento>
+    <horadocumento>12:06:53</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>45</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>503150</identificacion>
+      <digito_verificacion/>
+      <nombres>Jose  Vicente</nombres>
+      <apellidos>Echeverry Santamaria</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Clle 27 #13-134-la Ceja</direccion>
+      <telefono>5682202</telefono>
+      <idtiporegimen/>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <importes>
+      <totalImporteBruto>70000</totalImporteBruto>
+      <totalBaseImponible>70000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>70000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>27102</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Audiometria tonal</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>35000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>35000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>2</consecutivo>
+        <codigo>27103</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Audiometria vocal (logoaudiometria)</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>35000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>35000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

@@ -41,17 +41,18 @@ if (isset($_SESSION['userName'])) {
    </head>
    <body>
       <div class="container" style="margin-bottom: 1%;">
-         <nav class="navbar">
+           <nav class="navbar">
  
               <div class="container">
                
                 <h1 class="logo"><img src="img/logo.png" alt=""></h1>
+
                 <ul class="nav nav-right">
-                  <li style="color: white; font-size: 17px;  "> Usuario: <?php echo $NombreDelUsuario; ?></li>
+                   <li style="color: white; font-size: 17px;  "> <i style="font-size: 25px " class="fa fa-user"></i> <?php echo $NombreDelUsuario; ?></li>
                   <li><a href="./principal.php"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
                   <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
-                  <!--  <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li> -->              
-                    <li><a href="./controlador/logout.php"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li>
+                   <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i>Conf</a></li>
+                 <li><a href="./controlador/logout.php"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li>
 
                 </ul>
               </div><!--/.container-->
@@ -245,6 +246,7 @@ if (isset($_SESSION['userName'])) {
 
             var dataString = 'NumeroFac=' + NumeroFactura +'&NumeroNota=' + NumeroNota +'&ConceptoNota=' + ConceptoNota +'&TipoNota=' + TipoNota ;
          
+
          if (TipoNota == 1 ) {
             $.ajax({
             type: "POST",
@@ -259,14 +261,16 @@ if (isset($_SESSION['userName'])) {
             }
             });
          }else{
-            //  AJAX code to submit form.
             $.ajax({
             type: "POST",
             url: "controlador/generadorXMLNotaC.php",
             data: dataString,
             cache: false,
             success: function(html) {
-            alert(html);
+           swal({                     
+               title: 'Respuesta',
+               text: html,
+             })
             }
             });
          }

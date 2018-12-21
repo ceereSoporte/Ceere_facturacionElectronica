@@ -13,6 +13,7 @@ require_once("../controlador/wbsFactura.php");
 
 	$busqueda = $_POST['NumeroFac'];
 	$RetenImpuesto = $_POST['RetencionImpuesto'];
+	$IdEmpresaVBusqueda = trim($_POST['IdEmpresaV']);
 	$ConceptoFacturaE = $_POST['ConceptoFactura'];
 	//CONSULTAS
 
@@ -35,9 +36,10 @@ require_once("../controlador/wbsFactura.php");
      $Porcent;
      $Descuentos;
      $IdEmpresaV;
+     $fechaVencimiento;
 
     $consulta = "SELECT *  FROM  [Face Cnsta Factura] 
-                        WHERE [Face Cnsta Factura].[Id Factura] = '" . $busqueda . "'";
+                        WHERE [Face Cnsta Factura].[Id Factura] = '" . $busqueda . "' and [Face Cnsta Factura].IdEmpresaV ='".$IdEmpresaVBusqueda."'";
     $ejecutar = sqlsrv_query($conn, $consulta);
     
     if ($ejecutar === false) {
@@ -62,7 +64,8 @@ require_once("../controlador/wbsFactura.php");
         $Porcent   = $row['porcentaje'];
         $Descuentos   = $row['Descuentos'];  
         $PrefijoF   = $row['PrefijoFac'];
-        $IdEmpresaV   = $row['IdEmpresaV'];   
+        $IdEmpresaV   = $row['IdEmpresaV']; 
+         $fechaVencimiento   = $row['FechaVencimiento']->format('Y-m-d');   
     }
     
     if ($medioPagoF == 2) {
@@ -70,12 +73,14 @@ require_once("../controlador/wbsFactura.php");
         $medioPagoF    = 10;
     } else if ($medioPagoF == 4) {
         $NomMedioPago = "tarjeta de debito";
-        $medioPagoF    = 41;
         
     } else if ($medioPagoF == 5) {
         $NomMedioPago = "tarjeta de credito";
-        $medioPagoF    = 41;
+
         
+    }else if($medioPagoF == null){
+    	$NomMedioPago = "Credito";
+        $medioPagoF    = 12;
     }
 
 
@@ -96,7 +101,7 @@ require_once("../controlador/wbsFactura.php");
     while ($row = sqlsrv_fetch_array($ejecutar7)) {
 
         $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
-        $plantillaVersionGrafica     = $row['VersionGrafica'];
+        $plantillaVersionGrafica     = $row['VersionGraficaFactura'];
 
      
     }
@@ -105,7 +110,7 @@ require_once("../controlador/wbsFactura.php");
 
  $emailEmpresa;
  $consulta = "SELECT * from [Face Cnsta FacturaE Empresa] 
-                       where [Face Cnsta FacturaE Empresa].[Id Factura]='" . $busqueda . "'";
+                       where [Face Cnsta FacturaE Empresa].[Id Factura]='" . $busqueda . "' and [Face Cnsta FacturaE Empresa].IdEmpresaV ='".$IdEmpresaVBusqueda."'";
     
     $ejecutar2 = sqlsrv_query($conn, $consulta);
     if ($ejecutar2 === false) {
@@ -143,7 +148,7 @@ require_once("../controlador/wbsFactura.php");
 
 
     $consulta  = "SELECT * from [Face Cnsta FacturaE Entidad] 
-                where [Face Cnsta FacturaE Entidad].[Id Factura]='" . $busqueda . "'";
+                where [Face Cnsta FacturaE Entidad].[Id Factura]='" . $busqueda . "' and [Face Cnsta FacturaE Entidad].IdEmpresaV ='".$IdEmpresaVBusqueda."'";
     $ejecutar3 = sqlsrv_query($conn, $consulta);
     if ($ejecutar3 === false) {
         die(print_r(sqlsrv_errors(), true));
@@ -172,15 +177,16 @@ require_once("../controlador/wbsFactura.php");
 		$GranContribuyenteE  = $lista['GranContribuyente'];
 		$CodActividaEco  = $lista['ActividadEconomica'];
 
-        
-        
-        
-        
+
         $i++;
         
         if ($sNomE == null) {
             $sNomE = "";
         }
+
+         if ($emailE == "") {
+            $emailE =  'alejandrovelez74@gmail.com';
+        } 
 
 
        switch ($tipoDocE) {
@@ -233,31 +239,14 @@ require_once("../controlador/wbsFactura.php");
     	$CodActividaEco = '0';
     }
  	
- 	if ($RegimenE == null) {
+ 	if ($RegimenE == '1') {
  		$RegimenE = '0';
  	}
+
  
     $telefonoEntidad=str_replace("-","",$telefonoE);
 
 //CONSULTAR DETALLE FACTURA------------------------------------------------------
-
-	$docE;
-    $tipoDocE;
-    $pApeE;
-    $sApeE;
-    $pNomE;
-    $sApeE;
-    $sNomE;
-    $departE;
-    $direccionE;
-    $CiudadE;
-    $BarrioE;
-    $NomCompleto;
-    $DescripcionDocE;
-    $RegimenE;
-    $emailE;
-    $telefono;
-    $descuentoItem;
 
     $consulta2 = "SELECT * from [Face Cnsta FacturaEII] 
             where [Face Cnsta FacturaEII].[Id Factura]='" . $busqueda . "'";
@@ -265,6 +254,18 @@ require_once("../controlador/wbsFactura.php");
     if ($ejecutar4 === false) {
         die(print_r(sqlsrv_errors(), true));
     }
+
+
+
+// CONSULTA BASE IMPUESTO--------------------------------------------------------
+
+
+     $consulta5 = "SELECT * from [Face Total base impuestos] where [Face Total base impuestos].[No Factura] ='".$busqueda . "'";
+    $ejecutar5 = sqlsrv_query($conn, $consulta5);
+    if ($ejecutar5 === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
 
 
 //-----------------------------ESQUEMA DEL XML--------------------------
@@ -288,27 +289,6 @@ require_once("../controlador/wbsFactura.php");
 					$documento_electronico-> appendChild($numeroFactura);
 
 
-					// if ($referencia == 1) {
-						
-					
-						$referencias=$xml->createElement("referencias");
-						$documento_electronico-> appendChild($referencias);	
-
-							$referencia=$xml->createElement("referencia");
-							$referencias->appendChild($referencia);
-
-								$idnumeracionR=$xml->createElement("idnumeracion");
-								$referencia->appendChild($idnumeracionR);
-								$prefijoR=$xml->createElement("prefijo");
-								$referencia->appendChild($prefijoR);
-								$numeroReferencia=$xml->createElement("numero");
-								$referencia->appendChild($numeroReferencia);
-								$idconceptonota=$xml->createElement("idconceptonota");
-								$referencia->appendChild($idconceptonota);
-
-						// }
-
-
 					$fechadocumento=$xml->createElement("fechadocumento",$FechaF);
 					$documento_electronico-> appendChild($fechadocumento);	
 					
@@ -323,9 +303,6 @@ require_once("../controlador/wbsFactura.php");
 
 					$idreporte=$xml->createElement("idreporte",$plantillaVersionGrafica);
 					$documento_electronico-> appendChild($idreporte);
-
-					$tipocontenido=$xml->createElement("tipocontenido");
-					$documento_electronico-> appendChild($tipocontenido);
 
 
 
@@ -357,10 +334,10 @@ require_once("../controlador/wbsFactura.php");
 						$apellidos=$xml->createElement("apellidos",($pApeE ." ". $sApeE ));
 						$adquiriente-> appendChild($apellidos);
 
-						$emailcontacto=$xml->createElement("emailcontacto","alejandrovelez74@gmail.com");//$emailE
+						$emailcontacto=$xml->createElement("emailcontacto",$emailE);
 						$adquiriente-> appendChild($emailcontacto);
 
-						$emailentrega=$xml->createElement("emailentrega","alejandrovelez74@gmail.com");//$emailE
+						$emailentrega=$xml->createElement("emailentrega",$emailE);
 						$adquiriente-> appendChild($emailentrega);
 
 						$idciudad=$xml->createElement("idciudad",$CodPais.$departE.$CodigoCiudad);
@@ -402,7 +379,7 @@ require_once("../controlador/wbsFactura.php");
 						$CorreoCopia=$xml->createElement("CorreoCopia","alejandrovelez74@gmail.com");//$emailEmpresa
 						$CorreosCopia-> appendChild($CorreoCopia);
 
-				if ($medioPagoF==2) {
+				if ($medioPagoF==10) {
 					$mediospago=$xml->createElement("mediospago");
 					$documento_electronico-> appendChild($mediospago);		
 						
@@ -417,23 +394,28 @@ require_once("../controlador/wbsFactura.php");
 				}
 					
 
-					if ($Porcent != "0") {
+				if ($ivaF != 0) {
+					
+				
 					$impuestos=$xml->createElement("impuestos");
-					$documento_electronico-> appendChild($impuestos);	
+					$documento_electronico-> appendChild($impuestos);
+					while ($row2 = sqlsrv_fetch_array($ejecutar5)) {	
+
 					$impuesto=$xml->createElement("impuesto");
 					$impuestos-> appendChild($impuesto);	
 						$idconceptoimpuesto=$xml->createElement("idconceptoimpuesto",$ConceptoFacturaE);
 						$impuesto-> appendChild($idconceptoimpuesto);	
 						$taxevidenceindicator=$xml->createElement("taxevidenceindicator",$RetenImpuesto);
 						$impuesto-> appendChild($taxevidenceindicator);
-						$base=$xml->createElement("base",$subF);
+						$base=$xml->createElement("base",$row2['base']);
 						$impuesto-> appendChild($base);
-						$porcentaje=$xml->createElement("porcentaje",$Porcent);
+						$porcentaje=$xml->createElement("porcentaje",$row2['Valor Iva % FacturaII']);
 						$impuesto-> appendChild($porcentaje);
-						$valorIm=$xml->createElement("valor",$ivaF);
+						$valorIm=$xml->createElement("valor",$row2['ValorIva']);
 						$impuesto-> appendChild($valorIm);
 
 					}
+				}
 
 					$importes=$xml->createElement("importes");
 					$documento_electronico-> appendChild($importes);		
@@ -484,9 +466,9 @@ require_once("../controlador/wbsFactura.php");
 
 
 
-						if ($Porcent != "0") {
+						if ($row2['Porcentaje'] != "0") {
 
-							$valorImpuestoItemP=($row2['TaxAmount']+$row2['Valor FacturaII']);
+							$valorImpuestoItemP=$row2['TaxAmount'];
 
 						}else{
 							$valorImpuestoItemP=0;
@@ -496,7 +478,7 @@ require_once("../controlador/wbsFactura.php");
 						$totalImpuestosItem=$xml->createElement("totalImpuestos",$valorImpuestoItemP);
 						$item-> appendChild($totalImpuestosItem);
 
-						if ($Porcent != "0") {
+						if ($row2['Porcentaje'] != "0") {
 							
 						$impuestos_item=$xml->createElement("impuestos_item");
 						$item-> appendChild($impuestos_item);
@@ -510,7 +492,8 @@ require_once("../controlador/wbsFactura.php");
 								$ValorImpuestotpItem=$xml->createElement("valor",$row2['TaxAmount']);
 								$impuesto_item-> appendChild($ValorImpuestotpItem);
 
-				if ($Descuentos > 0) {
+						}
+						if ($Descuentos > 0) {
 					$cargos_item=$xml->createElement("cargos");
 					$item-> appendChild($cargos_item);
 					$es_cargo=$xml->createElement("es_cargo",0);
@@ -518,8 +501,6 @@ require_once("../controlador/wbsFactura.php");
 					$valor=$xml->createElement("valor",$row2['DescuentoItem']);
 					$cargos_item-> appendChild($valor);
 				}
-						
-			}
 			//insercion en la bd mediante el while
 			$consultaUpdateItem = "UPDATE FacturaII set [concepto Impuesto]=(?) where [Id FacturaII] = (?) ";
 			$params = array($conceptoItem[$idA],$row2['Id FacturaII']);	
@@ -531,11 +512,36 @@ require_once("../controlador/wbsFactura.php");
 		    }
 		    	$idA++;
 		    	$idA2++;
-			}	
+			}
+
+			if ($medioPagoF==5) {
+				$ValorMedioPago = "Tajeta de Credito";
+			}elseif($medioPagoF==4){
+				$ValorMedioPago = "Tajeta de Debito";
+			}elseif($medioPagoF==10){
+				$ValorMedioPago = "Efectivo";
+			}elseif ($medioPagoF == 12) {
+				$ValorMedioPago = "Credito";
+			}
+
+				$datosextra=$xml->createElement("datosextra");
+    			$documento_electronico -> appendChild($datosextra);
+
+			        $datoextra=$xml->createElement("datoextra");
+			        $datosextra -> appendChild($datoextra);
+			          	$claveExt=$xml->createElement("clave","MEDIO_PAGO");
+			          	$datoextra -> appendChild($claveExt);
+			          	$valorExt=$xml->createElement("valor",$ValorMedioPago);
+			          	$datoextra -> appendChild($valorExt);
 
 
-
-
+			          	$datoextra=$xml->createElement("datoextra");
+			        	$datosextra -> appendChild($datoextra);
+			          	$claveExt=$xml->createElement("clave","FECHA_VEN");
+			          	$datoextra -> appendChild($claveExt);
+			          	$valorExt=$xml->createElement("valor",$fechaVencimiento);
+			          	$datoextra -> appendChild($valorExt);
+	
 		    
 	// echo "<xmp>".$xml->saveXML()."</xmp>";	
 

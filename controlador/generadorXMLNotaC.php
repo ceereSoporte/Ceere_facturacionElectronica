@@ -2,53 +2,30 @@
 include("../BD/conexion_sql_server.php");
 require_once("../controlador/wbsFactura.php");
 
-  $conn = OpenConnection();
-// ------------------------------------------------------------------
-  // VARIABLES DE CONFIGURACION DE CADA EMPRESA
-    $IdNumeracionFenalcoNotaCredito;  
-    $IdNumeracionFenalcoFactura;  
-    $plantillaVersionGrafica; 
-
-
-    $consulta = "SELECT * from  ConfiguracionFace cf join EmpresaV ev on ev.[Id EmpresaV] = cf.IdEmpresaV where cf.IdEmpresaV = ".$IdEmpresaV;
-    $ejecutar7 = sqlsrv_query($conn, $consulta);
-    
-    if ($ejecutar7 === false) {
-        die(print_r(sqlsrv_errors(), true));
-    }
-    $i = 0;
-    while ($row = sqlsrv_fetch_array($ejecutar7)) {
-
-        $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
-        $plantillaVersionGrafica     = $row['VersionGrafica'];
-
-     
-    }
-
   $NumeroFac = $_POST['NumeroFac'];
   $busquedaNota = $_POST['NumeroNota'];
-  $ConceptoNotaD = $_POST['ConceptoNota'];
+  $ConceptoNotaC = $_POST['ConceptoNota'];
 
-//AQUI SE BUSCA LA NOTA PARCIAL----------------------------------------------
+  $conn = OpenConnection();
+
+//CONSULTA NOTA--------------------------------------------------------------------
 
     $NumNC;
     $DocumentoEntidad;
-    $concetNCText;
     $valorNC;
     $porcentDescNC;
     $ValorDescNC;
     $porcentIvaNC;
     $NoFacNC;
-    $IdConcepNC;
     $FechaNC;
-    $HoraNc; 
+    $HoraNC; 
     $nombreEntidad;
 
 
     $conn = OpenConnection();
 
     $consulta  = "SELECT * from [face Cnta Nota Credito] 
-                where [face Cnta Nota Credito].[NumNotaCredito]='" . $busquedaNota . "'";
+                where [face Cnta Nota Credito].NumNotaCredito='".$busquedaNota."'";
     $ejecutar4 = sqlsrv_query($conn, $consulta);
     if ($ejecutar4 === false) {
         die(print_r(sqlsrv_errors(), true));
@@ -59,25 +36,27 @@ require_once("../controlador/wbsFactura.php");
 
         while ($lista = sqlsrv_fetch_array($ejecutar4)) {
            $NumNC           = $lista['NumNotaCredito'];
-           $fechaNC         =  $lista['fechaNotaNC']->format('Y-m-d');
-           $HoraNc          = $lista['fechaNotaNC']->format('H:i:s');
+           $FechaNC         =  $lista['fechaNotaNC']->format('Y-m-d');
+           $HoraNC          = $lista['fechaNotaNC']->format('H:i:s');
            $DocumentoEntidad = $lista['EntidadDocumento'];
-           $concetNCText    = $lista['ConceptoTexto'];
            $valorNC         = $lista['ValorNotaC'];
            $porcentDescNC   = $lista['PorcentajeDescuentoNC'];
            $ValorDescNC     = $lista['ValorDescuentoNC'];
            $porcentIvaNC    = $lista['porcentajeIvaNC'];
            $NoFacNC         = $lista['NoFactura'];
-           $nombreEntidad         = $lista['NombreEntidad'];
-           $IdConcepNC      = $lista['IdConcpetoNC'];
+           $nombreEntidad   = $lista['NombreEntidad'];
+
            
 
             $i++;
         }
 
+$valorIvaNC = ($valorNC *('0.'.$porcentIvaNC));
+$totalNC = ($valorNC + $valorIvaNC);
+
 //CONSULTA FACTURA------------------------------------------------------------------
 
-	   $numF;
+     $numF;
      $FechaF;
      $HoraF;
      $ivaF;
@@ -99,8 +78,7 @@ require_once("../controlador/wbsFactura.php");
      $valorLetrasFactura;
      $DocUsuario;
      $idTerminal;
-    $IdEmpresaV;
-
+     $IdEmpresaV;
      $conn = OpenConnection();
     
     $consulta = "SELECT *  FROM  [Face Cnsta Factura] 
@@ -135,7 +113,10 @@ require_once("../controlador/wbsFactura.php");
         $valorLetrasFactura   = $row['valorLetrasFactura'];    
         $DocUsuario   = $row['DocUsuario'];    
         $idTerminal   = $row['IdTerminal'];
-         $IdEmpresaV   = $row['IdEmpresaV'];      
+        $retencionFace   = $row['retencionfacturaElectronica'];
+        $conceptoFace   = $row['ConceptoFacturaElectronica'];
+        $IdEmpresaV   = $row['IdEmpresaV'];   
+            
     }
     
     if ($medioPagoF == 2) {
@@ -150,6 +131,29 @@ require_once("../controlador/wbsFactura.php");
         $medioPagoF    = 41;
         
     }
+
+// ------------------------------------------------------------------
+  // VARIABLES DE CONFIGURACION DE CADA EMPRESA
+    $IdNumeracionFenalcoNotaCredito;  
+    $IdNumeracionFenalcoFactura;  
+    $plantillaVersionGrafica; 
+
+
+    $consulta = "SELECT * from  ConfiguracionFace cf join EmpresaV ev on ev.[Id EmpresaV] = cf.IdEmpresaV where cf.IdEmpresaV = ".$IdEmpresaV;
+    $ejecutar7 = sqlsrv_query($conn, $consulta);
+    
+    if ($ejecutar7 === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    $i = 0;
+    while ($row = sqlsrv_fetch_array($ejecutar7)) {
+        $IdNumeracionFenalcoNotaCredito = $row['IdresolucionNotaCredito'];  
+        $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
+        $plantillaVersionGrafica     = $row['VersionGraficaFacturaNC'];
+
+     
+    }
+
 
 //CONSULTA EMPRESA---------------------------------------------------------------------
 $docEmpresa;
@@ -189,12 +193,12 @@ $emailEmpresa;
     $DescripcionDocE;
     $RegimenE;
     $emailE;
-	  $telefono;
-	  $CodActividaEco;
+    $telefono;
+    $CodActividaEco;
 
 
-    $consulta  = "SELECT * from [Face Cnsta FacturaE Entidad] 
-                where [Face Cnsta FacturaE Entidad].[id Factura]='" . $NumeroFac . "'";
+    $consulta  = "SELECT * from [Face Cnsta NotaCredito Entidad] 
+                where [Face Cnsta NotaCredito Entidad].[NumNotaCredito]='" . $busquedaNota . "'";
     $ejecutar3 = sqlsrv_query($conn, $consulta);
     if ($ejecutar3 === false) {
         die(print_r(sqlsrv_errors(), true));
@@ -206,11 +210,11 @@ $emailEmpresa;
         $tipoDocE        = $lista['Id Tipo de Documento'];
         $CiudadE         = utf8_encode($lista['CityName']);
         $CodigoCiudad    = $lista['CodigoCiudad'];
-        $pApeE           = utf8_encode( $lista['FamilyName']);
-        $sApeE           = utf8_encode( $lista['secondFamilyName']);
-        $pNomE           = utf8_encode( $lista['FirstName']);
-        $sNomE           = utf8_encode( $lista['MiddleName']);
-        $departE         = utf8_encode( $lista['CodigoDepartamento']);
+        $pApeE           = utf8_encode($lista['FamilyName']);
+        $sApeE           = utf8_encode($lista['secondFamilyName']);
+        $pNomE           = utf8_encode($lista['FirstName']);
+        $sNomE           = utf8_encode($lista['MiddleName']);
+        $departE         = $lista['CodigoDepartamento'];
         $paisE         = $lista['codigoPais'];
         $direccionE      = utf8_encode($lista['Line Entidad']);
         $BarrioE         = utf8_encode($lista['citySubdivisionName']);
@@ -220,8 +224,8 @@ $emailEmpresa;
         $emailE          = utf8_encode($lista['emailEntidad']);
         $telefonoE       = $lista['telefono'];
         $AutoRetenedorE  = $lista['AutoRetenedor'];
-    		$GranContribuyenteE  = $lista['GranContribuyente'];
-    		$CodActividaEco  = $lista['ActividadEconomica'];
+        $GranContribuyenteE  = $lista['GranContribuyente'];
+        $CodActividaEco  = $lista['ActividadEconomica'];
 
         
         
@@ -235,38 +239,39 @@ $emailEmpresa;
 
 
        switch ($tipoDocE) {
-   			case 2:
-   	    		$tipoDocE = 13;
-       			break;
+        case 2:
+            $tipoDocE = 13;
+            break;
 
-       		case 3:
-  	    		$tipoDocE = 22;
-       			break;	
-       	
-       		case 4:
-  	    		$tipoDocE = 41;
-       			break;
-       		case 5:
-  	    		$tipoDocE = 11;
-       			break;
+          case 3:
+            $tipoDocE = 22;
+            break;  
+        
+          case 4:
+            $tipoDocE = 41;
+            break;
+          case 5:
+            $tipoDocE = 11;
+            break;
 
-       		case 6:
-  	    		$tipoDocE = 12;
-       			break;	
+          case 6:
+            $tipoDocE = 12;
+            break;  
 
-       		case 10:
-  	    		$tipoDocE = 31;
-       			break;				
-       	}
+          case 10:
+            $tipoDocE = 31;
+            break;        
+        }
 
 
-       	switch ($paisE) {
-   			case 2:
-   	    		$CodPais = 'CO';
-       			break;
-       		}
+        switch ($paisE) {
+        case 2:
+            $CodPais = 'CO';
+            break;
+          }
 
     }
+
 
 
 
@@ -281,41 +286,23 @@ $emailEmpresa;
     if ($CodActividaEco == null) {
       $CodActividaEco = '0';
     }
+
+    if ($emailE == null) {
+      $emailE = "alejandrovelez74@gmail.com";
+    }
+      if ($RegimenE == '1') {
+        $RegimenE = '0';
+    }
     
     $telefonoEntidad=str_replace("-","",$telefonoE);
 
 //CONSULTAR DETALLE FACTURA------------------------------------------------------
-
-	$docE;
-    $tipoDocE;
-    $pApeE;
-    $sApeE;
-    $pNomE;
-    $sApeE;
-    $sNomE;
-    $departE;
-    $direccionE;
-    $CiudadE;
-    $BarrioE;
-    $NomCompleto;
-    $DescripcionDocE;
-    $RegimenE;
-    $emailE;
-    $telefono;
-    $descuentoItem;
-
-
     $consulta2 = "SELECT * from [Face Cnsta FacturaEII] 
             where [Face Cnsta FacturaEII].[Id Factura]='" . $NumeroFac . "'";
     $ejecutar4 = sqlsrv_query($conn, $consulta2);
     if ($ejecutar4 === false) {
         die(print_r(sqlsrv_errors(), true));
     }
-
-
-		//tiene referencia no = 0 si = 1, esto va a estar en 0 hasta que se arregle las notas del sio a lo bien
-		$mensaje = '';
-
 //-----------------------------ESQUEMA DEL XML---------------------------------------------------
 
 
@@ -334,12 +321,12 @@ $emailEmpresa;
           $idNumeracion=$xml->createElement("idnumeracion",$IdNumeracionFenalcoNotaCredito);
           $documento_electronico-> appendChild($idNumeracion);
 
-           $tipodocumentoelectronico=$xml->createElement("tipodocumentoelectronico",3);
-            $documento_electronico->appendChild($tipodocumentoelectronico);
-
-          $numeroFactura=$xml->createElement("numero",$NoNotaCredito);
+            $tipodocumentoelectronicoR=$xml->createElement("tipodocumentoelectronico",3);
+            $documento_electronico->appendChild($tipodocumentoelectronicoR);
+          $numeroFactura=$xml->createElement("numero",$NumNC);
           $documento_electronico-> appendChild($numeroFactura);
-          $idconceptonota=$xml->createElement("idconceptonota" ,2);
+
+          $idconceptonota=$xml->createElement("idconceptonota" ,$ConceptoNotaC);
           $documento_electronico->appendChild($idconceptonota);
 
 
@@ -352,19 +339,19 @@ $emailEmpresa;
 
                 $idnumeracionR=$xml->createElement("idnumeracion",$IdNumeracionFenalcoFactura);
                 $referencia->appendChild($idnumeracionR);
-                
                 $tipodocumentoelectronicoR=$xml->createElement("tipodocumentoelectronico",1);
                 $referencia->appendChild($tipodocumentoelectronicoR);
+
+                
 
                 $numeroReferencia=$xml->createElement("numero",$NumeroFac);
                 $referencia->appendChild($numeroReferencia);
 
 
-
-          $fechadocumento=$xml->createElement("fechadocumento",$fechaActual);
+          $fechadocumento=$xml->createElement("fechadocumento",$FechaNC);
           $documento_electronico-> appendChild($fechadocumento);  
           
-          $horadocumento=$xml->createElement("horadocumento",$HoraActual);
+          $horadocumento=$xml->createElement("horadocumento",$HoraNC);
           $documento_electronico-> appendChild($horadocumento);
 
           $documentoexportacion=$xml->createElement("documentoexportacion",0);
@@ -376,8 +363,7 @@ $emailEmpresa;
           $idreporte=$xml->createElement("idreporte",$plantillaVersionGrafica);
           $documento_electronico-> appendChild($idreporte);
 
-          $tipocontenido=$xml->createElement("tipocontenido");
-          $documento_electronico-> appendChild($tipocontenido);
+
 
           $adquiriente=$xml->createElement("adquiriente");
           $documento_electronico-> appendChild($adquiriente);
@@ -463,48 +449,46 @@ $emailEmpresa;
             $codigoMedioPago=$xml->createElement("codigo",$medioPagoF);
             $mediopago-> appendChild($codigoMedioPago); 
         }
-          if ($Porcent != "0") {
+
+          if ($porcentIvaNC != "0") {
           $impuestos=$xml->createElement("impuestos");
           $documento_electronico-> appendChild($impuestos); 
           $impuesto=$xml->createElement("impuesto");
           $impuestos-> appendChild($impuesto);  
-            $idconceptoimpuesto=$xml->createElement("idconceptoimpuesto",$ConceptoFacturaE);
+            $idconceptoimpuesto=$xml->createElement("idconceptoimpuesto",$conceptoFace);
             $impuesto-> appendChild($idconceptoimpuesto); 
-            $taxevidenceindicator=$xml->createElement("taxevidenceindicator",$RetenImpuesto);
+            $taxevidenceindicator=$xml->createElement("taxevidenceindicator",$retencionFace);
             $impuesto-> appendChild($taxevidenceindicator);
-            $base=$xml->createElement("base",$subF);
+            $base=$xml->createElement("base",$valorNC);
             $impuesto-> appendChild($base);
-            $porcentaje=$xml->createElement("porcentaje",$Porcent);
+            $porcentaje=$xml->createElement("porcentaje",$porcentIvaNC);
             $impuesto-> appendChild($porcentaje);
-            $valorIm=$xml->createElement("valor",$ivaF);
+            $valorIm=$xml->createElement("valor",$valorIvaNC);
             $impuesto-> appendChild($valorIm);
 
           }
 
           $importes=$xml->createElement("importes");
           $documento_electronico-> appendChild($importes);    
-            $totalImporteBruto=$xml->createElement("totalImporteBruto",$subF);
+            $totalImporteBruto=$xml->createElement("totalImporteBruto",$valorNC);
             $importes-> appendChild($totalImporteBruto);
-            $totalBaseImponible=$xml->createElement("totalBaseImponible", ($subF + 0 - $Descuentos));
-            $importes-> appendChild($totalBaseImponible); 
-            $totalDescuentos=$xml->createElement("totalDescuentos",$Descuentos);
+            $totalBaseImponible=$xml->createElement("totalBaseImponible", ($valorNC + 0 - $ValorDescNC));
+            $importes-> appendChild($totalBaseImponible);
+            $totalDescuentos=$xml->createElement("totalDescuentos",$ValorDescNC);
             $importes-> appendChild($totalBaseImponible);
             $totalCargos=$xml->createElement("totalCargos",0);
             $importes-> appendChild($totalCargos);
             $totalAnticipos=$xml->createElement("totalAnticipos",0);
             $importes-> appendChild($totalAnticipos);
-            $TotalPagado=$xml->createElement("TotalPagado",$totF);
+            $TotalPagado=$xml->createElement("TotalPagado",$totalNC);
             $importes-> appendChild($TotalPagado);
             //se inicializa el id auto incrementable
-            $idA = 0;
+        
             $idA2 = 1;
             $valorImpuestoItemP = 0;
         while ($row2 = sqlsrv_fetch_array($ejecutar4)) {  
         
-        $arrayId = [
-                $idA =>  $row2['Id FacturaII']
-                
-            ];
+       
 
 
           $items=$xml->createElement("items");
@@ -520,26 +504,17 @@ $emailEmpresa;
             $item-> appendChild($ItemCodigo_extendido);
             $descripcionItem=$xml->createElement("descripcionItem", utf8_encode($row2['Description']));
             $item-> appendChild($descripcionItem);
-            $itemCantidad=$xml->createElement("cantidad",$row2['InvoicedQuantity']);
+            $itemCantidad=$xml->createElement("cantidad",0);
             $item-> appendChild($itemCantidad);
-            $costoTotalSinImpuestos=$xml->createElement("costoTotalSinImpuestos",($row2['InvoicedQuantity']*$row2['Valor FacturaII']));
+            $costoTotalSinImpuestos=$xml->createElement("costoTotalSinImpuestos",0);
             $item-> appendChild($costoTotalSinImpuestos);
 
-            $precioUnitarioSinImpuestos=$xml->createElement("precioUnitarioSinImpuestos",$row2['Valor FacturaII']);
+            $precioUnitarioSinImpuestos=$xml->createElement("precioUnitarioSinImpuestos",0);
             $item-> appendChild($precioUnitarioSinImpuestos);
 
 
 
-            if ($Porcent != "0") {
-
-              $valorImpuestoItemP=($row2['TaxAmount']+$row2['Valor FacturaII']);
-
-            }else{
-              $valorImpuestoItemP=0;
-            }
-
-
-            $totalImpuestosItem=$xml->createElement("totalImpuestos",$valorImpuestoItemP);
+            $totalImpuestosItem=$xml->createElement("totalImpuestos",0);
             $item-> appendChild($totalImpuestosItem);
 
             if ($Porcent != "0") {
@@ -549,49 +524,46 @@ $emailEmpresa;
 
               $impuesto_item=$xml->createElement("impuesto_item");
               $impuestos_item-> appendChild($impuesto_item);
-                $idconceptoimpuestoitem=$xml->createElement("idconceptoimpuesto",$conceptoItem[$idA]);
-                $impuesto_item-> appendChild($idconceptoimpuestoitem);
-                $porcentajeItem=$xml->createElement("porcentaje",$row2['Porcentaje']);
-                $impuesto_item-> appendChild($porcentajeItem);
-                $ValorImpuestotpItem=$xml->createElement("valor",$row2['TaxAmount']);
-                $impuesto_item-> appendChild($ValorImpuestotpItem);
+              $idconceptoimpuestoitem=$xml->createElement("idconceptoimpuesto",0);
+              $impuesto_item-> appendChild($idconceptoimpuestoitem);
+              $porcentajeItem=$xml->createElement("porcentaje",0);
+              $impuesto_item-> appendChild($porcentajeItem);
+              $ValorImpuestotpItem=$xml->createElement("valor",0);
+              $impuesto_item-> appendChild($ValorImpuestotpItem);
 
         if ($Descuentos > 0) {
           $cargos_item=$xml->createElement("cargos");
           $item-> appendChild($cargos_item);
           $es_cargo=$xml->createElement("es_cargo",0);
           $cargos_item-> appendChild($es_cargo);
-          $valor=$xml->createElement("valor",$row2['DescuentoItem']);
+          $valor=$xml->createElement("valor",0);
           $cargos_item-> appendChild($valor);
         }
             
       }
     }
 
+   
 
+   
+  // echo "<xmp>".$xml->saveXML()."</xmp>"; 
 
-      
+  $xml->save("../xmls/faceNC_".$NumNC.".xml");  
 
-	$xml->save("../xmls/faceNC_".$NoNotaCredito.".xml");  
+  sleep(2);
 
-	sleep(2);
+  $inst = new fenalco(); 
+  $r=$inst ->EnviarNotaCredito($NumNC);
 
-	$inst = new fenalco(); 
-	$r=$inst ->EnviarNotaCredito($NoNotaCredito);
-
-	$respuestaSuccess = $r->success;
+  $respuestaSuccess = $r->success;
   $respuestaMsg = $r->msg;
-  // $larespuesta = $respuesta->msg;
-  
 
-
-  if ($respuestaSuccess == true) {
+if ($respuestaSuccess == true) {
     // modulo para acturalizar la tabla factura
-     
 
-      //actualiza el esatdo de la factura por anulada electronicamente
+         //actualiza el esatdo de la factura tiene una nota debito electronicamente
        $consultaUpdate = "UPDATE Factura set EstadoFacturaElectronica=(?) where [No Factura]=(?) ";
-      $params = array('2' ,$numF); 
+      $params = array('3' ,$numF); 
 
       $ejecutarUpdate = sqlsrv_query($conn, $consultaUpdate, $params);
     
@@ -600,9 +572,8 @@ $emailEmpresa;
         }
 
       
-    echo "La factura numero: ".$numF." ha anulada correctamente con el numero de nota credito: ".$NoNotaCredito;
+    echo "Se registro correctemente la nota Credito: ".$NumNC." Asociada a la factura: ".$numF;
   }elseif($respuestaSuccess == false){
     echo $respuestaMsg;
   }
-	
  ?>

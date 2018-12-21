@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>468</idnumeracion>
+    <tipodocumentoelectronico>2</tipodocumentoelectronico>
+    <numero>6</numero>
+    <idconceptonota>1</idconceptonota>
+    <referencias>
+      <referencia>
+        <idnumeracion>393</idnumeracion>
+        <tipodocumentoelectronico>1</tipodocumentoelectronico>
+        <numero>18983</numero>
+      </referencia>
+    </referencias>
+    <fechadocumento>2011-11-04</fechadocumento>
+    <horadocumento>14:38:54</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>45</idreporte>
+    <tipocontenido/>
+    <adquiriente>
+      <idtipodocumentoidentidad>31</idtipodocumentoidentidad>
+      <identificacion>800088702-2</identificacion>
+      <digito_verificacion>2</digito_verificacion>
+      <nombres>Eps Sura Eps Sura</nombres>
+      <apellidos> </apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Almacentro Local 259</direccion>
+      <telefono>3609090</telefono>
+      <idtiporegimen>0</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <importes>
+      <totalImporteBruto>85590</totalImporteBruto>
+      <totalBaseImponible>75747</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>85590</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>27102</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Audiometria tonal</descripcionItem>
+        <cantidad>0</cantidad>
+        <costoTotalSinImpuestos>0</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>0</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

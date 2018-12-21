@@ -1,31 +1,26 @@
  <?php
 include("BD/conexion_sql_server.php");
 
-function consultaNotaCredito()
-{
+$ResolucionBusqueda = "";
+$PrefijoBusqueda ="";
 
-    global $busquedaNota;
-    //se declaran las variables globales
-
-    global $NumN;
-    global $DocumentoEntidad ;
-    global $concetNText;
-    global $valorN;
-    global $porcentDescN;
-    global $ValorDescN;
-    global $porcentIvaN;
-    global $NoFacN;
-    global $IdConcepN;
-    global $FechaN;
-    global $HoraN; 
-    global $nombreEntidad;
-    global $totalN;
+if ($_POST) {
+        $ResolucionBusqueda = trim($_POST['NumeroResolucionB']);
+        $PrefijoBusqueda = trim($_POST['PrefijoB']);
 
 
-    $conn = OpenConnection();
+    }
 
-    $consulta  = "SELECT * from [face Cnta Nota Credito] 
-                where [face Cnta Nota Credito].NumNotaCredito='".$busquedaNota."'";
+    
+
+          
+
+
+$IdEmpresaV = "";
+$EstadoREsolucion = "";
+$conn = OpenConnection();
+
+    $consulta  = "SELECT * from face_ConsultaEmpresaV where resolucionSIO= '".$ResolucionBusqueda."' and prefijoSIO = '".$PrefijoBusqueda."'";
     $ejecutar4 = sqlsrv_query($conn, $consulta);
     if ($ejecutar4 === false) {
         die(print_r(sqlsrv_errors(), true));
@@ -35,31 +30,44 @@ function consultaNotaCredito()
 
 
         while ($lista = sqlsrv_fetch_array($ejecutar4)) {
-           $NumN           = $lista['NumNotaCredito'];
-           $FechaN         =  $lista['fechaNotaNC']->format('Y-m-d ');
-           $DocumentoEntidad = $lista['EntidadDocumento'];
-           $concetNText    = $lista['ConceptoTexto'];
-           $valorN         = $lista['ValorNotaC'];
-           $porcentDescN  = $lista['PorcentajeDescuentoNC'];
-           $ValorDescN     = $lista['ValorDescuentoNC'];
-           $porcentIvaN   = $lista['porcentajeIvaNC'];
-           $NoFacN         = $lista['NoFactura'];
-           $nombreEntidad   = $lista['NombreEntidad'];
-           $IdConcepN      = $lista['IdConcpetoNC'];
+           $IdEmpresaV           = $lista['IDempresaV'];
+            $i++;
+        }
+
+    global $IdResolucionFactura;
+    global $IdresolucionNotaCredito ;
+    global $IdresolucionNotaDebito;
+    global $VersionGraficaFactura;
+    global $VersionGraficaFacturaNC;
+    global $VersionGraficaFacturaND;
+
+    $consulta  = "SELECT * from [Face Cnta ConfiguracionFace] 
+                where [Face Cnta ConfiguracionFace].IdEmpresaV='".$IdEmpresaV."'";
+    $ejecutar4 = sqlsrv_query($conn, $consulta);
+    if ($ejecutar4 === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    $i = 0;
+
+
+
+        while ($lista = sqlsrv_fetch_array($ejecutar4)) {
+           $IdResolucionFactura           = $lista['IdResolucionFactura'];
+           $IdresolucionNotaCredito         =  $lista['IdresolucionNotaCredito'];
+           $IdresolucionNotaDebito = $lista['IdresolucionNotaDebito'];
+           $VersionGraficaFactura    = $lista['VersionGraficaFactura'];
+           $VersionGraficaFacturaNC         = $lista['VersionGraficaFacturaNC'];
+           $VersionGraficaFacturaND  = $lista['VersionGraficaFacturaND'];
+           
            
 
             $i++;
         }
 
-    $valorIvaN = ($valorN *('0.'.$porcentIvaN));
-    $totalN = ($valorN + $valorIvaN);
+      if ($IdResolucionFactura == Null) {
+          $EstadoREsolucion = 0;
 
-
-
-}
-
-
-
-
-
+        }else{
+          $EstadoREsolucion = 1;
+        }  
 ?> 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>393</idnumeracion>
+    <numero>18985</numero>
+    <fechadocumento>2018-12-18</fechadocumento>
+    <horadocumento>09:46:08</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>86</idreporte>
+    <adquiriente>
+      <idtipodocumentoidentidad>11</idtipodocumentoidentidad>
+      <identificacion>00010602416</identificacion>
+      <digito_verificacion/>
+      <nombres>Maria Camila</nombres>
+      <apellidos>Gaviria Espinosa</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Carrera 96 B No 49 24</direccion>
+      <telefono>2641495</telefono>
+      <idtiporegimen>0</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>0</taxevidenceindicator>
+        <base>60000</base>
+        <porcentaje>19</porcentaje>
+        <valor>11400</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>60000</totalImporteBruto>
+      <totalBaseImponible>60000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>71400</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>27105</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Prueba de reclutamiento</descripcionItem>
+        <cantidad>3</cantidad>
+        <costoTotalSinImpuestos>60000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>20000</precioUnitarioSinImpuestos>
+        <totalImpuestos>11400</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>19</porcentaje>
+            <valor>11400</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+    <datosextra>
+      <datoextra>
+        <clave>MEDIO_PAGO</clave>
+        <valor>Efectivo</valor>
+      </datoextra>
+    </datosextra>
+  </documento_electronico>
+</root>

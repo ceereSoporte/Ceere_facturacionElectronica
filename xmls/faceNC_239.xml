@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>467</idnumeracion>
+    <tipodocumentoelectronico>3</tipodocumentoelectronico>
+    <numero>239</numero>
+    <idconceptonota>1</idconceptonota>
+    <referencias>
+      <referencia>
+        <idnumeracion>466</idnumeracion>
+        <tipodocumentoelectronico>1</tipodocumentoelectronico>
+        <numero>18966</numero>
+      </referencia>
+    </referencias>
+    <fechadocumento>2018-12-20</fechadocumento>
+    <horadocumento>11:16:03</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>87</idreporte>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>70123456</identificacion>
+      <digito_verificacion/>
+      <nombres>Administrador Ceere</nombres>
+      <apellidos>El  </apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Calle De Prueba</direccion>
+      <telefono>1234566</telefono>
+      <idtiporegimen>0</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <importes>
+      <totalImporteBruto>500000</totalImporteBruto>
+      <totalBaseImponible>500000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>500000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>3860436</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Acompañamiento post-adaptacion</descripcionItem>
+        <cantidad>0</cantidad>
+        <costoTotalSinImpuestos>0</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>0</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

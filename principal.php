@@ -56,7 +56,7 @@ if (isset($_SESSION['userName'])) {
                    <li style="color: white; font-size: 17px;  "> <i style="font-size: 25px " class="fa fa-user"></i> <?php echo $NombreDelUsuario; ?></li>
                   <li><a href="./principal.php"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
                   <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
-                  <!-- <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i> Configuracion</a></li> -->
+                   <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i>Conf</a></li>
                  <li><a href="./controlador/logout.php"><i class="fa fa-sign-out"></i>&nbsp;Salir</a></li>
 
                 </ul>
@@ -68,20 +68,39 @@ if (isset($_SESSION['userName'])) {
                
                <div class="mdl-card__supporting-text">
                                     <div style="margin-top: 5%">
-                  
-                  <form  id="contactForm" name="buscador" method="post" action="principal.php">
+                  <div class="col-md-12">
+                      <form  id="contactForm" name="buscador" method="post" action="principal.php">
                      <div class="row" style="margin-left: 50%; transform: translateX(-50%);">
-                        <div class="col-md-9" >
+                        <div class="col-md-6" >
+                         <div class="mdl-textfield mdl-js-textfield">
+                                 
+                              <select class="mdl-textfield__input" name="SelectResolucionFac"    id="SelectResolucionFac" selected='selected'>
+                                <option value="">Seleccione numero de resolucion</option> 
+                                <?php 
+
+                            
+                                   consultarResolucion();
+                     
+                                ?>
+      
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-md-6" >
                            <div class="mdl-textfield mdl-js-textfield">
                               <input class="mdl-textfield__input" type="text"  name="buscarFactura" id="buscarFactura">
                               <label class="mdl-textfield__label" for="buscarFactura"> Número de factura</label>
                            </div>
                         </div>
-                        <div class="col-md-3">
+                      
+                     </div>
+                       <div class="col-md-3" style="margin-left: 50%; transform: translateX(-50%);">
                            <input type="submit" class="contact-form-submit-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"id="buscarBoton" name="buscarBoton" value="buscar Factura">
                         </div>
-                     </div>
                   </form>
+
+                  </div>
+                 
                   <hr>
                   <form  id="idFormularioGenerar" name="generador" method="post" >
                      <h4 class="mdl-typography--text-capitalize">INFORMACÍON FACTURA</h4>
@@ -95,6 +114,7 @@ if (isset($_SESSION['userName'])) {
 
                      <input type="hidden" id="EstadoFacturacionElectronica" value="<?php ECHO $EstadoFacturaElectronica ?>">
                      <input type="hidden" value="<?php echo $EstadoFactura ?>" id="IdEstadoFactura"> 
+                      <input type="hidden" value="<?php echo $IdEmpresaV ?>" id="IdEmpresaV"> 
 
                      <div class="col-md-6">
                         <div class="mdl-textfield mdl-js-textfield">
@@ -168,8 +188,8 @@ if (isset($_SESSION['userName'])) {
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Seleccione si es un impuesto retenido<span style="color: red">*</span></span>
                            <select class="mdl-textfield__input"   onChange="funRetencionSelect(this)" name="retencionSelect" id="retencionSelect">
-                              <option value="1">No</option>
-                              <option value="0">Si</option>
+                              <option value="0">No</option>
+                              <option value="1">Si</option>
                            </select>
                         </div>
                      </div>
@@ -188,13 +208,13 @@ if (isset($_SESSION['userName'])) {
                            </select>
                         </div>
                      </div>
-                     <div class="col-md-6">
+                    <!--  <div class="col-md-6">
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Porcentaje IVA</span>
                            <input class="mdl-textfield__input" disabled="" value="<?php echo $Porcent; ?>" type="text" name="contactName" id="contactName">
                            <label class="mdl-textfield__label" for="contactName"></label>
                         </div>
-                     </div>
+                     </div> -->
                      <div class="col-md-6">
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Descuento</span>
@@ -266,13 +286,14 @@ if (isset($_SESSION['userName'])) {
                            <span>Identificación</span>
                            <input class="mdl-textfield__input"  disabled="" value="<?php echo $docE; ?>" type="text" name="contactName2" id="contactName2">
                         </div>
-                        <div class="mdl-textfield mdl-js-textfield">
-                           <span>Apellidos</span>
-                           <input class="mdl-textfield__input" disabled=""  value="<?php echo $pApeE." ".$sApeE; ?>" type="text" name="ApellidosEntidad" id="ApellidosEntidad">
-                        </div>
+                       
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Nombres</span>
                            <input class="mdl-textfield__input" disabled=""  value="<?php echo $pNomE." ".$sNomE;  ?>" type="text" name="NombresEntidad" id="NombresEntidad">
+                        </div>
+                         <div class="mdl-textfield mdl-js-textfield">
+                           <span>Apellidos</span>
+                           <input class="mdl-textfield__input" disabled=""  value="<?php echo $pApeE." ".$sApeE; ?>" type="text" name="ApellidosEntidad" id="ApellidosEntidad">
                         </div>
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>E-mail</span>
@@ -376,9 +397,8 @@ if (isset($_SESSION['userName'])) {
                       var telefono = document.getElementById("TelefonoEntidad").value;
                       var estadoFace = document.getElementById("EstadoFacturacionElectronica").value;
                       var TipoDocumento = document.getElementById("TipoDocumento").value;
+                       var IdEmpresaV = document.getElementById("IdEmpresaV").value;
 
-
-                     console.log(estadoFace);
                       
                      //INICIALIZAMOS UNA VARIABLE AUTOiNCREMENTAL
                      var idA = 1
@@ -397,13 +417,7 @@ if (isset($_SESSION['userName'])) {
                   configureLoadingScreen(screen);
 
    // VALIDAACIONES DE CAMPOS VACIOS----------------------------      
-                      swal({
-                          type: 'error',
-                          title: 'prueba campo',
-                          text: TipoDocumento,
-                          
-                         })
-                     if (NumeroFactura == "") {
+                        if (NumeroFactura == "") {
                         swal({
                           type: 'error',
                           title: 'Campo vacio',
@@ -412,7 +426,7 @@ if (isset($_SESSION['userName'])) {
                         })
                         return false;
 
-                     } else if ( apellidos == null ) {
+                     } else if ( apellidos == " " ) {
                         swal({
                           type: 'error',
                           title: 'Campo vacio',
@@ -421,7 +435,7 @@ if (isset($_SESSION['userName'])) {
                         })
                         return false;
                      }
-                     else if ( nombres == "" ) {
+                     else if ( nombres == " " ) {
                         swal({
                           type: 'error',
                           title: 'Campo vacio',
@@ -476,7 +490,7 @@ if (isset($_SESSION['userName'])) {
                         return false;
                      }else{
 
-                         var dataString = 'NumeroFac=' + NumeroFactura +'&RetencionImpuesto=' + retencion +'&conceptoItem=' + JSON.stringify(conceptoItem)  +'&ConceptoFactura=' + conceptoFactura +'&EstadoFac=' + estadoFac ;
+                         var dataString = 'NumeroFac=' + NumeroFactura +'&RetencionImpuesto=' + retencion +'&conceptoItem=' + JSON.stringify(conceptoItem)  +'&ConceptoFactura=' + conceptoFactura +'&EstadoFac=' + estadoFac +'&IdEmpresaV=' +  IdEmpresaV ;
 
                     
 
@@ -572,7 +586,9 @@ if (isset($_SESSION['userName'])) {
                   
 
                   function funRetencionSelect(sel) {
-                        if (sel.value=="0"){
+
+              
+                        if (sel.value=="1"){
                              divC = document.getElementById("divSelectConcepImpuest");
                              divC.style.display = "";
 

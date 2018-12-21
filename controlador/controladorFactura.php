@@ -3,11 +3,32 @@
     require('BD/conexion_sql_server.php');
 
 
+function consultarResolucion()
+{
+    
+    $conn = OpenConnection();
+    
+    $consulta = "SELECT *  FROM  face_ConsultaEmpresaV";
+    $ejecutar = sqlsrv_query($conn, $consulta);
+    
+    if ($ejecutar === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    $i = 0;
+    while ($row = sqlsrv_fetch_array($ejecutar)) {
+
+         echo '<option value="'.$row['IDempresaV'].'">'.$row['prefijoSIO'].$row['resolucionSIO'] .'</option>';
+           
+    }
+
+}
+
 function consultaFactura()
 {
     //se declaran las variables globales
     
     $busqueda = '0';
+    $busquedaResolucion = "";
     global $numF;
     global $FechaF;
     global $HoraF;
@@ -27,16 +48,19 @@ function consultaFactura()
     global $EstadoFactura;
     global $descripcionEstadoFactura;
     global $EstadoFacturaElectronica;
+    global $IdEmpresaV;
     
     if ($_POST) {
         $busqueda = trim($_POST['buscarFactura']);
+        $busquedaResolucion = trim($_POST['SelectResolucionFac']);
+         
     }
     // $busqueda = '2966';
     
     $conn = OpenConnection();
     
     $consulta = "SELECT *  FROM  [Face Cnsta Factura] 
-                        WHERE [Face Cnsta Factura].[Id Factura] = '" . $busqueda . "'";
+                        WHERE [Face Cnsta Factura].[Id Factura] = '" . $busqueda . "'and [Face Cnsta Factura].IdEmpresaV ='".$busquedaResolucion."'";
     $ejecutar = sqlsrv_query($conn, $consulta);
     
     if ($ejecutar === false) {
@@ -65,6 +89,8 @@ function consultaFactura()
         $EstadoFactura   = $row['EstadoFactura']; 
         $descripcionEstadoFactura   = $row['DescEstadoFactura']; 
         $EstadoFacturaElectronica   = $row['EstadoFacturaElectronica']; 
+        $IdEmpresaV   = $row['IdEmpresaV']; 
+
         
     }
     
@@ -94,6 +120,7 @@ function consultaEmpresa()
     //se declaran las variables globales
     
     $busqueda = '0';
+     $busquedaResolucion = "";
     global $docEm;
     global $tipoDocEm;
     global $nomEm;
@@ -107,13 +134,14 @@ function consultaEmpresa()
     
     if ($_POST) {
         $busqueda = trim($_POST['buscarFactura']);
+         $busquedaResolucion = trim($_POST['SelectResolucionFac']);
     }
     // $busqueda = '2966';
     
     $conn = OpenConnection();
     
     $consulta = "SELECT * from [Face Cnsta FacturaE Empresa] 
-                       where [Face Cnsta FacturaE Empresa].[Id Factura]='" . $busqueda . "'";
+                       where [Face Cnsta FacturaE Empresa].[Id Factura]='" . $busqueda . " 'and [Face Cnsta FacturaE Empresa].IdEmpresaV ='".$busquedaResolucion."' ";
     
     $ejecutar2 = sqlsrv_query($conn, $consulta);
     if ($ejecutar2 === false) {
@@ -145,6 +173,7 @@ function consultaEntidad()
     //se declaran las variables globales
     
     $busqueda = '0';
+    $busquedaResolucion = "";
     global $docE;
     global $tipoDocE;
     global $pApeE;
@@ -165,13 +194,14 @@ function consultaEntidad()
     
     if ($_POST) {
         $busqueda = trim($_POST['buscarFactura']);
+         $busquedaResolucion = trim($_POST['SelectResolucionFac']);
     }
     // $busqueda = '2966';
     
     $conn = OpenConnection();
     
     $consulta  = "SELECT * from [Face Cnsta FacturaE Entidad] 
-                where [Face Cnsta FacturaE Entidad].[Id Factura]='" . $busqueda . "'";
+                where [Face Cnsta FacturaE Entidad].[Id Factura]='" . $busqueda . " ' and [Face Cnsta FacturaE Entidad].IdEmpresaV ='".$busquedaResolucion."'";
     $ejecutar3 = sqlsrv_query($conn, $consulta);
     if ($ejecutar3 === false) {
         die(print_r(sqlsrv_errors(), true));
@@ -182,12 +212,12 @@ function consultaEntidad()
         $docE            = $lista['Id Entidad'];
         $tipoDocE        = $lista['Id Tipo de Documento'];
         $CiudadE         = utf8_encode($lista['CityName']);
-        $CodigoCiudad    = $lista['CodigoCiudad'];
-        $pApeE           = $lista['FamilyName'];
-        $sApeE           = $lista['secondFamilyName'];
-        $pNomE           = $lista['FirstName'];
-        $sNomE           = $lista['MiddleName'];
-        $departE         = $lista['Departamento'];
+        $CodigoCiudad    = utf8_encode($lista['CodigoCiudad']);
+        $pApeE           = utf8_encode($lista['FamilyName']);
+        $sApeE           = utf8_encode($lista['secondFamilyName']);
+        $pNomE           = utf8_encode($lista['FirstName']);
+        $sNomE           = utf8_encode( $lista['MiddleName']);
+        $departE         = utf8_encode($lista['Departamento']);
         $direccionE      = utf8_encode($lista['Line Entidad']);
         $BarrioE         = utf8_encode($lista['citySubdivisionName']);
         $NomCompleto     = utf8_encode($lista['NomComplete']);
@@ -207,8 +237,10 @@ function consultaEntidad()
         $RegimenE = '0';
     }
  
-
-        $emailE =  'alejandrovelez74@gmail.com';
+       if ($emailE == "") {
+            $emailE =  'alejandrovelez74@gmail.com';
+        } 
+        
     }
     
 }
@@ -218,23 +250,6 @@ function consultaDetalle()
     //se declaran las variables globales
     
     $busqueda = '0';
-    global $docE;
-    global $tipoDocE;
-    global $pApeE;
-    global $sApeE;
-    global $pNomE;
-    global $sApeE;
-    global $sNomE;
-    global $departE;
-    global $direccionE;
-    global $CiudadE;
-    global $BarrioE;
-    global $NomCompleto;
-    global $DescripcionDocE;
-    global $RegimenE;
-    global $emailE;
-    global $telefono;
-    global $descuentoItem;
     
     
     if ($_POST) {

@@ -134,7 +134,7 @@ $totalND = ($valorND + $valorIvaND);
 
 // ------------------------------------------------------------------
   // VARIABLES DE CONFIGURACION DE CADA EMPRESA
-    $IdNumeracionFenalcoNotaCredito;  
+    $IdNumeracionFenalcoNotaDebito;  
     $IdNumeracionFenalcoFactura;  
     $plantillaVersionGrafica; 
 
@@ -149,7 +149,7 @@ $totalND = ($valorND + $valorIvaND);
     while ($row = sqlsrv_fetch_array($ejecutar7)) {
         $IdNumeracionFenalcoNotaDebito = $row['IdresolucionNotaDebito'];  
         $IdNumeracionFenalcoFactura  = $row['IdResolucionFactura'];
-        $plantillaVersionGrafica     = $row['VersionGrafica'];
+        $plantillaVersionGrafica     = $row['VersionGraficaFacturaND'];
 
      
     }
@@ -197,8 +197,8 @@ $emailEmpresa;
 	  $CodActividaEco;
 
 
-    $consulta  = "SELECT * from [Face Cnsta FacturaE Entidad] 
-                where [Face Cnsta FacturaE Entidad].[id Factura]='" . $NumeroFac . "'";
+    $consulta  = "SELECT * from [Face Cnsta NotaDebito Entidad] 
+                where [Face Cnsta NotaDebito Entidad].[NumNotaDebito]='".$busquedaNota."'";
     $ejecutar3 = sqlsrv_query($conn, $consulta);
     if ($ejecutar3 === false) {
         die(print_r(sqlsrv_errors(), true));
@@ -286,28 +286,16 @@ $emailEmpresa;
     if ($CodActividaEco == null) {
       $CodActividaEco = '0';
     }
+
+    if ($RegimenE == '1') {
+        $RegimenE = '0';
+    }
     
     $telefonoEntidad=str_replace("-","",$telefonoE);
 
 //CONSULTAR DETALLE FACTURA------------------------------------------------------
 
-	$docE;
-    $tipoDocE;
-    $pApeE;
-    $sApeE;
-    $pNomE;
-    $sApeE;
-    $sNomE;
-    $departE;
-    $direccionE;
-    $CiudadE;
-    $BarrioE;
-    $NomCompleto;
-    $DescripcionDocE;
-    $RegimenE;
-    $emailE;
-    $telefono;
-    $descuentoItem;
+
 
 
     $consulta2 = "SELECT * from [Face Cnsta FacturaEII] 
@@ -376,8 +364,7 @@ $emailEmpresa;
           $idreporte=$xml->createElement("idreporte",$plantillaVersionGrafica);
           $documento_electronico-> appendChild($idreporte);
 
-          $tipocontenido=$xml->createElement("tipocontenido");
-          $documento_electronico-> appendChild($tipocontenido);
+
 
           $adquiriente=$xml->createElement("adquiriente");
           $documento_electronico-> appendChild($adquiriente);
@@ -560,7 +547,7 @@ $emailEmpresa;
    
 
    
-  // echo "<xmp>".$xml->saveXML()."</xmp>"; 
+   // echo "<b><xmp>".$xml->saveXML()."</xmp></b>"; 
 
 	$xml->save("../xmls/faceND_".$NumND.".xml");  
 

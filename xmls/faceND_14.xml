@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>468</idnumeracion>
+    <tipodocumentoelectronico>2</tipodocumentoelectronico>
+    <numero>14</numero>
+    <idconceptonota>3</idconceptonota>
+    <referencias>
+      <referencia>
+        <idnumeracion>466</idnumeracion>
+        <tipodocumentoelectronico>1</tipodocumentoelectronico>
+        <numero>18967</numero>
+      </referencia>
+    </referencias>
+    <fechadocumento>2018-12-20</fechadocumento>
+    <horadocumento>12:17:07</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>88</idreporte>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>70123456</identificacion>
+      <digito_verificacion/>
+      <nombres>Administrador Ceere</nombres>
+      <apellidos>El  </apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Calle De Prueba</direccion>
+      <telefono>1234566</telefono>
+      <idtiporegimen>0</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <importes>
+      <totalImporteBruto>10000</totalImporteBruto>
+      <totalBaseImponible>10000</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>10000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>1143</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Video beam epson</descripcionItem>
+        <cantidad>0</cantidad>
+        <costoTotalSinImpuestos>0</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>0</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>0</idconceptoimpuesto>
+            <porcentaje>0</porcentaje>
+            <valor>0</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+  </documento_electronico>
+</root>

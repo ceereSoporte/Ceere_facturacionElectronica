@@ -19,6 +19,20 @@ include("BD/conexion_sql_server.php");
         
 
 
+    global $NumN;
+    global $DocumentoEntidad ;
+    global $concetNText;
+    global $valorN;
+    global $porcentDescN;
+    global $ValorDescN;
+    global $porcentIvaN;
+    global $NoFacN;
+    global $IdConcepN;
+    global $FechaN;
+    global $HoraN; 
+    global $nombreEntidad;
+    global $totalN;
+
 
 function consultaNotaCredito()
 {
@@ -99,7 +113,7 @@ $conn = OpenConnection();
         while ($lista = sqlsrv_fetch_array($ejecutar1)) {
               
 
-               echo '<option value="'.$lista['CodigoConceptoNotaCredito'].' selected="selected">'.utf8_encode($lista['conceptoNotaCredito']) .'</option>';
+               echo '<option value="'.$lista['CodigoConceptoNotaCredito'].'">'.utf8_encode($lista['conceptoNotaCredito']) .'</option>';
            
 
             $i++;

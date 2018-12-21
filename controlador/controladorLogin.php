@@ -5,6 +5,7 @@
 	include('../BD/conexion_sql_server.php');
 
 
+
     if (isset($_POST['submit'])) {
         
             echo 'entraste al controlador';
@@ -13,7 +14,9 @@
             $conn = OpenConnection();
 
 
-
+            global $usuario;
+            global $contrasena;
+            global $NombreDelUsuario;
             
             $consulta = "SELECT *  FROM  [Face Cnsta Login] 
                                 WHERE [Face Cnsta Login].NombreUsuario ='".$user."' and  [Face Cnsta Login].passwordUsuario = '".$password."'";
@@ -32,16 +35,14 @@
                 echo $_SESSION['userName'] ;
                 header("location: ../principal.php"); 
             }else{
-                header("location: ../index.php"); 
+                header("location: ../"); 
+     
             }
 
               
 
     }else{
-         echo 'coma mierda la otra validacion';
-        header("location: ../index.php");
-
-
+        header("location: ../");
  	}
 
 

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <documento_electronico>
+    <idnumeracion>466</idnumeracion>
+    <numero>16994</numero>
+    <fechadocumento>2016-11-16</fechadocumento>
+    <horadocumento>12:02:14</horadocumento>
+    <documentoexportacion>0</documentoexportacion>
+    <documentCurrencyCode>COP</documentCurrencyCode>
+    <idreporte>86</idreporte>
+    <adquiriente>
+      <idtipodocumentoidentidad>13</idtipodocumentoidentidad>
+      <identificacion>21321588</identificacion>
+      <digito_verificacion/>
+      <nombres>Marta Libia</nombres>
+      <apellidos>Gomez Escobar</apellidos>
+      <emailcontacto>alejandrovelez74@gmail.com</emailcontacto>
+      <emailentrega>alejandrovelez74@gmail.com</emailentrega>
+      <idciudad>CO05001</idciudad>
+      <direccion>Calle 50  No. 71-80 Apto 1015</direccion>
+      <telefono>2608226</telefono>
+      <idtiporegimen>0</idtiporegimen>
+      <idactividadeconomica>0</idactividadeconomica>
+      <grancontribuyente>0</grancontribuyente>
+      <autoretenedor>0</autoretenedor>
+    </adquiriente>
+    <CorreosCopia>
+      <CorreoCopia>alejandrovelez74@gmail.com</CorreoCopia>
+    </CorreosCopia>
+    <mediospago>
+      <mediopago>
+        <id>1</id>
+        <codigo>10</codigo>
+      </mediopago>
+    </mediospago>
+    <impuestos>
+      <impuesto>
+        <idconceptoimpuesto>01</idconceptoimpuesto>
+        <taxevidenceindicator>0</taxevidenceindicator>
+        <base>20689.655767752</base>
+        <porcentaje>16</porcentaje>
+        <valor>3310</valor>
+      </impuesto>
+    </impuestos>
+    <importes>
+      <totalImporteBruto>81690</totalImporteBruto>
+      <totalBaseImponible>81690</totalBaseImponible>
+      <totalCargos>0</totalCargos>
+      <totalAnticipos>0</totalAnticipos>
+      <TotalPagado>85000</TotalPagado>
+    </importes>
+    <items>
+      <item>
+        <consecutivo>1</consecutivo>
+        <codigo>12590-302</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Pila 312</descripcionItem>
+        <cantidad>6</cantidad>
+        <costoTotalSinImpuestos>10344.827883876</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>1724.137980646</precioUnitarioSinImpuestos>
+        <totalImpuestos>1655.1724614201</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>16</porcentaje>
+            <valor>1655.1724614201</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+      <item>
+        <consecutivo>2</consecutivo>
+        <codigo>27102</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Audiometria tonal</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>31000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>31000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>3</consecutivo>
+        <codigo>08</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Consulta audiológica</descripcionItem>
+        <cantidad>1</cantidad>
+        <costoTotalSinImpuestos>30000</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>30000</precioUnitarioSinImpuestos>
+        <totalImpuestos>0</totalImpuestos>
+      </item>
+      <item>
+        <consecutivo>4</consecutivo>
+        <codigo>62500-001</codigo>
+        <codigo_extendido/>
+        <descripcionItem>Atrapaceras hck starkey</descripcionItem>
+        <cantidad>2</cantidad>
+        <costoTotalSinImpuestos>10344.827883876</costoTotalSinImpuestos>
+        <precioUnitarioSinImpuestos>5172.4139419379</precioUnitarioSinImpuestos>
+        <totalImpuestos>1655.1724614201</totalImpuestos>
+        <impuestos_item>
+          <impuesto_item>
+            <idconceptoimpuesto>01</idconceptoimpuesto>
+            <porcentaje>16</porcentaje>
+            <valor>1655.1724614201</valor>
+          </impuesto_item>
+        </impuestos_item>
+      </item>
+    </items>
+    <datosextra>
+      <datoextra>
+        <clave>MEDIO_PAGO</clave>
+        <valor>Efectivo</valor>
+      </datoextra>
+    </datosextra>
+  </documento_electronico>
+</root>

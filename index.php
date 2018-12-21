@@ -55,7 +55,7 @@
                   <label class="mdl-textfield__label" for="PassLg">Contraseña</label>
                 </div>
                 
-                <button type="submit" name="submit" class="login-form-submit-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Ingresar</button>
+                <button type="submit" name="submit" class="login-form-submit-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="IngresarLogin()">Ingresar</button>
               </form>
             </div>
           
@@ -86,7 +86,64 @@
     <script src="js/color-switcher.js"></script>
 
  <script src="js/sweetalert2.js"></script>
- <script src="js/login.js"></script>
+ 
+<script type="text/javascript">
+  
+   function IngresarLogin() {
+
+      var Usuario = document.getElementById("UserLg").value;
+      var contrasena = document.getElementById("PassLg").value;
+
+
+        if (Usuario == "") {
+                swal({
+                  type: 'error',
+                  title: 'Campo vacio',
+                  text: 'El campo Usuario esta vacio',
+                  
+                })
+                return false;
+             } else if ( contrasena == "" ) {
+                swal({
+                  type: 'error',
+                  title: 'Campo vacio',
+                  text: 'El campo contraseña esta vacio',
+                  
+                })
+                return false;
+             }
+
+
+             var dataString = 'UserLg=' + Usuario +'&PassLg=' + contrasena;
+
+               // $.ajax({
+               //    type: "POST",
+               //    url: "controlador/controladorLogin.php",
+               //    data: dataString,
+               //    cache: false,
+               //    success: function(msg) {
+
+               //      if (msg == '0') {
+               //        swal({  
+               //        type: 'error',                   
+               //        title: 'ERROR',
+               //        text: 'Los campos estan vacios'
+               //      })
+
+                  
+               //    }else if(msg == '1') {
+               //     swal({  
+               //        type: 'error',                   
+               //        title: 'ERROR',
+               //        text: 'El usuario o la contraseña estan incorrectos'
+               //        })
+               //      }
+               //    }
+               //  });
+                  
+}
+</script>
+
 
 </body>
 </html>
