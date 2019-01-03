@@ -2,6 +2,29 @@
 
     require('BD/conexion_sql_server.php');
 
+session_start();
+
+if (isset($_SESSION['userName']) || isset($_SESSION['userDoc']) ) {
+      $NombreDelUsuario = $_SESSION['userName'];
+      $DocumentoDelUsuario = $_SESSION['userDoc'];
+
+
+      // echo $NombreDelUsuario;
+}else{
+   header("location: index.php");
+}
+
+
+
+ $busquedaResolucionSelect = ''; 
+
+
+ if (isset($_POST['NumeroResolucion'])) {
+     $busquedaResolucionSelect = trim($_POST['NumeroResolucion']);
+         ConsultarFacturaPorUsuario($busquedaResolucionSelect);
+    }
+
+    echo $busquedaResolucionSelect;
 
 function consultarResolucion()
 {
@@ -22,6 +45,28 @@ function consultarResolucion()
     }
 
 }
+
+
+    function ConsultarFacturaPorUsuario($IdEmV)
+    {
+        $conn = OpenConnection();
+
+
+        echo $IdEmV;
+        $consultaFacturaUsuario = "SELECT * FROM  face_facturaPorUsuario where face_facturaPorUsuario.[Documento Usuario] = '".$DocumentoDelUsuario."' and face_facturaPorUsuario.IdEmpresaV = '".$IdEmV."'";
+        $ejecutarFacturaUsuario = sqlsrv_query($conn, $consultaFacturaUsuario);
+        
+        if ($ejecutarFacturaUsuario === false) {
+            die(print_r(sqlsrv_errors(), true));
+        }
+        $i = 0;
+        while ($row = sqlsrv_fetch_array($ejecutarFacturaUsuario)) {
+
+             echo '<option value="'.$row['NoFactura'].'">'.$row['NoFactura'].'</option>';
+               
+        }
+    }
+
 
 function consultaFactura()
 {

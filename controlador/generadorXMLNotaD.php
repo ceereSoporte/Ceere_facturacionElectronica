@@ -564,7 +564,7 @@ if ($respuestaSuccess == true) {
 
          //actualiza el esatdo de la factura tiene una nota debito electronicamente
        $consultaUpdate = "UPDATE Factura set EstadoFacturaElectronica=(?) where [No Factura]=(?) ";
-      $params = array('3' ,$numF); 
+      $params = array('2' ,$numF); 
 
       $ejecutarUpdate = sqlsrv_query($conn, $consultaUpdate, $params);
     

@@ -17,6 +17,7 @@
             global $usuario;
             global $contrasena;
             global $NombreDelUsuario;
+            global $DocumentoDelUsuario;
             
             $consulta = "SELECT *  FROM  [Face Cnsta Login] 
                                 WHERE [Face Cnsta Login].NombreUsuario ='".$user."' and  [Face Cnsta Login].passwordUsuario = '".$password."'";
@@ -27,12 +28,14 @@
                 $usuario   = $row['NombreUsuario'];
                 $contrasena = $row['passwordUsuario'];
                 $NombreDelUsuario   = $row['NomUsuario'];
+                $DocumentoDelUsuario   = $row['DocumentoUsuario'];
             }
 
 
             if (($usuario == $user) || ($contrasena == $password)) {
                 $_SESSION['userName'] = $NombreDelUsuario;
-                echo $_SESSION['userName'] ;
+                 $_SESSION['userDoc'] = $DocumentoDelUsuario;
+                // echo $_SESSION['userDoc'] ;
                 header("location: ../principal.php"); 
             }else{
                 header("location: ../"); 

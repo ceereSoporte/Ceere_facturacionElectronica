@@ -1,13 +1,16 @@
 <?php 
 
-session_start();
+// session_start();
 
-if (isset($_SESSION['userName'])) {
-      $NombreDelUsuario = $_SESSION['userName'];
-      // echo $NombreDelUsuario;
-}else{
-   header("location: index.php");
-}
+// if (isset($_SESSION['userName']) || isset($_SESSION['userDoc']) ) {
+//       $NombreDelUsuario = $_SESSION['userName'];
+//       $DocumentoDelUsuario = $_SESSION['userDoc'];
+
+
+//       // echo $NombreDelUsuario;
+// }else{
+//    header("location: index.php");
+// }
 
 
 
@@ -53,7 +56,7 @@ if (isset($_SESSION['userName'])) {
                 <h1 class="logo"><img src="img/logo.png" alt=""></h1>
 
                 <ul class="nav nav-right">
-                   <li style="color: white; font-size: 17px;  "> <i style="font-size: 25px " class="fa fa-user"></i> <?php echo $NombreDelUsuario; ?></li>
+                   <li style="color: white; font-size: 100%; "> <i style="font-size: 20px " class="fa fa-user"></i> <?php echo $NombreDelUsuario; ?></li>
                   <li><a href="./principal.php"><i class="fa fa-file"></i>&nbsp;Generar factura</a></li>
                   <li><a href="./NotasVista.php"><i class="fa fa-edit"></i>&nbsp;Crear nota</a></li>
                    <li><a href="./vistaConfig.php"><i class="fa fa-cogs"></i>Conf</a></li>
@@ -74,7 +77,7 @@ if (isset($_SESSION['userName'])) {
                         <div class="col-md-6" >
                          <div class="mdl-textfield mdl-js-textfield">
                                  
-                              <select class="mdl-textfield__input" name="SelectResolucionFac"    id="SelectResolucionFac" selected='selected'>
+                              <select class="mdl-textfield__input" name="SelectResolucionFac"   onChange="facturaPorResolucion(this)"  id="SelectResolucionFac" selected='selected'>
                                 <option value="">Seleccione numero de resolucion</option> 
                                 <?php 
 
@@ -86,12 +89,32 @@ if (isset($_SESSION['userName'])) {
                               </select>
                            </div>
                         </div>
+                     
+
                         <div class="col-md-6" >
+                         <div class="mdl-textfield mdl-js-textfield">
+                                 
+                              <select class="mdl-textfield__input" name="buscarFactura" id="buscarFactura" selected='selected'>
+                                <option >Numero de factura</option> 
+                             
+      
+                              </select>
+                           </div>
+                        </div>
+
+
+
+
+                     <!--  
+
+                        INPUT QUE ANTES DE USUABA PARA USCAR FACTURAS PERO ESCRIBIENDOLAS
+                       <div class="col-md-6" >
                            <div class="mdl-textfield mdl-js-textfield">
                               <input class="mdl-textfield__input" type="text"  name="buscarFactura" id="buscarFactura">
                               <label class="mdl-textfield__label" for="buscarFactura"> Número de factura</label>
                            </div>
-                        </div>
+                        </div> -->
+
                       
                      </div>
                        <div class="col-md-3" style="margin-left: 50%; transform: translateX(-50%);">
@@ -105,6 +128,8 @@ if (isset($_SESSION['userName'])) {
                   <form  id="idFormularioGenerar" name="generador" method="post" >
                      <h4 class="mdl-typography--text-capitalize">INFORMACÍON FACTURA</h4>
                      <?php consultaFactura(); ?>
+
+                    
                       
                      <div class="col-md-4" style="float: right; margin-top: -1%; font-size: 25px">
                         <span>Factura:<span style="color: red"><?php echo $descripcionEstadoFactura; ?></span></span>
@@ -113,6 +138,7 @@ if (isset($_SESSION['userName'])) {
                      </div>
 
                      <input type="hidden" id="EstadoFacturacionElectronica" value="<?php ECHO $EstadoFacturaElectronica ?>">
+                      <input type="hidden" value="<?php echo $DocumentoDelUsuario ?>">
                      <input type="hidden" value="<?php echo $EstadoFactura ?>" id="IdEstadoFactura"> 
                       <input type="hidden" value="<?php echo $IdEmpresaV ?>" id="IdEmpresaV"> 
 
@@ -380,6 +406,7 @@ if (isset($_SESSION['userName'])) {
       <script src="js/color-switcher.js"></script>
       <!-- FUNCIONES JAVASCRIPT -->
       <script>
+
          
                    function generarXml() {
 
@@ -598,6 +625,27 @@ if (isset($_SESSION['userName'])) {
                              divC.style.display="none";
                         }
                   }
+
+
+                  function facturaPorResolucion(select) {
+                              
+                          
+
+                              dataSelect = 'NumeroResolucion='+select.value;
+                              $.ajax({
+                               type: "POST",
+                               url: "controlador/findFactura.php",
+                               data: dataSelect,
+                               cache: false,
+                               success: function(data) {
+                                 document.getElementById("buscarFactura").innerHTML=data;
+                               }
+                               });
+
+
+                  }
+
+
       </script>  
    </body>
 </html>

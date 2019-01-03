@@ -92,14 +92,14 @@ if (isset($_SESSION['userName'])) {
                         <div class="col-md-6">
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Resolucion de factura</span>
-                           <input class="mdl-textfield__input" value="<?php echo $ResolucionBusqueda ?>"  type="text" name="ResolucionFactura" id="ResolucionFactura">
+                           <input class="mdl-textfield__input" value="<?php echo $ResolucionBusqueda ?>"  type="text" name="ResolucionFactura" id="ResolucionFactura" disabled>
                            <label class="mdl-textfield__label" for="ResolucionFactura"></label>
                         </div>
                      </div>
                         <div class="col-md-6">
                         <div class="mdl-textfield mdl-js-textfield">
                            <span>Prefijo de factura</span>
-                           <input class="mdl-textfield__input" value="<?php echo $PrefijoBusqueda ?>" type="text" name="PrefijoResolucion" id="PrefijoResolucion">
+                           <input class="mdl-textfield__input" value="<?php echo $PrefijoBusqueda ?>" type="text" name="PrefijoResolucion" id="PrefijoResolucion" disabled>
                            <label class="mdl-textfield__label" for="PrefijoResolucion"></label>
                         </div>
                      </div>
